@@ -4,7 +4,7 @@
 
 # Controller for Sudoku
 
-GET     /                           controllers.WoodBlockPuzzleController.sudoku
+GET     /                           controllers.WoodBlockPuzzleController.woodblock
 
 GET     /about                      controllers.WoodBlockPuzzleController.about
 

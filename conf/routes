@@ -8,6 +8,13 @@ GET     /                           controllers.WoodBlockPuzzleController.woodbl
 
 GET     /about                      controllers.WoodBlockPuzzleController.about
 
+GET    /reset                       controllers.WoodBlockPuzzleController.reset
+
+GET    /add/:b/:x/:y                controllers.WoodBlockPuzzleController.add(b:Int, x:Int, y:Int)
+
+GET    /g                           controllers.WoodBlockPuzzleController.giveup
+
+GET    /r                           controllers.WoodBlockPuzzleController.reverse
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

@@ -7,10 +7,11 @@
             @{"Count: "+controller.returnCount}
         </div>
         <div class="game">
-            @for(row <- 1 to size){
-                @for(col <- 1 until size) {
-                    @{if(controller.getCellStatusAtField(row,col)==0){"_"}else "X"}
+            @for(col <- 1 to size){
+                @for(row <- 1 until size) {
+                    @{if(controller.getCellStatusAtField(row,col)==0){"__"}else "-.-"}
                 }
+                <br>
             }
         </div>
     </div>

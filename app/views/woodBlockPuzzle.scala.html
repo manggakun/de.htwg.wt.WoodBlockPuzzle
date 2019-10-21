@@ -1,0 +1,27 @@
+@(controller:de.htwg.se.woodblockpuzzle.controller.Controller)
+@size= @{ controller.fieldsize }
+
+@main("HTWG WoodBlockPuzzle") {
+    <div class="WoodBlockPuzzleController">
+        <div class="Count">
+            @{"Count: "+controller.returnCount}
+        </div>
+        <div class="game">
+            @for(row <- 1 to size){
+                @for(col <- 1 until size) {
+                    @{if(controller.getCellStatusAtField(row,col)==0){"_"}else "X"}
+                }
+            }
+        </div>
+    </div>
+}
+
+@*<!DOCTYPE html>*@
+@*<html>*@
+@*    <head>*@
+@*        <title>The Game</title>*@
+@*    </head>*@
+@*    <body>*@
+@*        <h1>Ein Text zum Testen</h1>*@
+@*    </body>*@
+@*</html>*@

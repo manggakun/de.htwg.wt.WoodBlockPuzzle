@@ -31,23 +31,19 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends Abs
 
   def reset = Action {
     gameController.reset
-//    Ok(getText)
     Ok(views.html.woodBlockPuzzle(gameController))
   }
   def add(b:Int, x:Int, y:Int) = Action{
     gameController.addBlock(b,x,y)
-//    Ok(getText)
     Ok(views.html.woodBlockPuzzle(gameController))
   }
 
   def reverse = Action {
     gameController.reverse()
-//    Ok(getText)
     Ok(views.html.woodBlockPuzzle(gameController))
   }
   def giveup = Action {
     gameController.giveup
-//    Ok(getText)
     Ok(views.html.woodBlockPuzzle(gameController))
   }
 }

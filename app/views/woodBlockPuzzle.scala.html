@@ -1,28 +1,98 @@
 @(controller:de.htwg.se.woodblockpuzzle.controller.Controller)
 @size= @{ controller.fieldsize }
 
-@main("HTWG WoodBlockPuzzle") {
-    <div class="WoodBlockPuzzleController">
-        <div class="Count">
-            @{"Count: "+controller.returnCount}
-        </div>
-        <div class="game">
-            @for(col <- 1 to size){
-                @for(row <- 1 until size) {
-                    @{if(controller.getCellStatusAtField(row,col)==0){"__"}else "-.-"}
-                }
-                <br>
-            }
-        </div>
-    </div>
-}
 
-@*<!DOCTYPE html>*@
-@*<html>*@
-@*    <head>*@
-@*        <title>The Game</title>*@
-@*    </head>*@
-@*    <body>*@
-@*        <h1>Ein Text zum Testen</h1>*@
-@*    </body>*@
-@*</html>*@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Game</title>
+    </head>
+    <body>
+        <h1>WoodBlockPuzzle</h1>
+        <table style="width:1000%">
+        @main("HTWG WoodBlockPuzzle") {
+            <div class="WoodBlockPuzzleController">
+                <tr>
+                    <th>@{"Blocks: "+controller.availableBlocks}</th>
+@*Section for Count and Highscore*@
+                    <th>
+                        <div class="Count">
+                        @{"Count: "+controller.returnCount}
+                        @{"Highscore: "+controller.returnHighscore}
+                        </div>
+                    </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td></td>
+@*Section for field*@
+                    <td>
+                        <div class="game">
+                        @for(col <- 1 to size){
+                            @for(row <- 1 to size) {
+                                @{if(controller.getCellStatusAtField(row,col)==0){"00"}else "xx"}
+                            }
+                            <br>
+                            }
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+
+                    <td></td>
+@*Section for the 3 Blocks*@
+                    <td>
+                        <div class="Blocks">
+@*Extra table for the blocks*@
+                        <table>
+                            <tr>
+                                <td>
+                                    <h4>Block 1:<br></h4>
+                                    @for(col <- 1 to controller.b1.blockmaxy){
+                                        @for(row <- 1 to controller.b1.blockmaxx) {
+                                            @{if(controller.getCellStatusAtBlock(1,row,col)==0){"00"} else "xx"}
+                                        }
+                                        <br>
+                                    }
+                                </td>
+                                <td>
+                                    <h4>Block 2:<br></h4>
+                                    @for(col <- 1 to controller.b2.blockmaxy){
+                                        @for(row <- 1 to controller.b2.blockmaxx) {
+                                            @{if(controller.getCellStatusAtBlock(2,row,col)==0){"00"}else "xx"}
+                                        }
+                                    <br>
+                                    }
+                                </td>
+                                <td>
+                                    <h4>Block 3:<br></h4>
+                                    @for(col <- 1 to controller.b3.blockmaxy){
+                                        @for(row <- 1 to controller.b3.blockmaxx) {
+                                            @{if(controller.getCellStatusAtBlock(3,row,col)==0){"00"}else "xx"}
+                                        }
+                                        <br>
+                                        }
+                                </td>
+                            </tr>
+                        </table>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+@*Section for the Statustext*@
+                    <td></td>
+                    <td>
+                        <div class="Statustext">
+                            <h3>Last action: @{controller.statusText}</h3>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+        }
+
+        </table>
+    </body>
+</html>

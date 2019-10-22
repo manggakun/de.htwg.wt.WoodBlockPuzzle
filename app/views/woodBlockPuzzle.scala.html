@@ -50,27 +50,27 @@
                             <tr>
                                 <td>
                                     <h4>Block 1:<br></h4>
-                                    @for(col <- 1 to controller.b1.blockmaxy){
-                                        @for(row <- 1 to controller.b1.blockmaxx) {
-                                            @{if(controller.getCellStatusAtBlock(1,row,col)==0){"00"} else "xx"}
+                                    @for(col <- 0 until controller.b1.blockmaxy){
+                                        @for(row <- 0 until controller.b1.blockmaxx) {
+                                            @{if(controller.getCellStatusAtBlock(1,row,col)==0){"0"} else "x"}
                                         }
                                         <br>
                                     }
                                 </td>
                                 <td>
                                     <h4>Block 2:<br></h4>
-                                    @for(col <- 1 to controller.b2.blockmaxy){
-                                        @for(row <- 1 to controller.b2.blockmaxx) {
-                                            @{if(controller.getCellStatusAtBlock(2,row,col)==0){"00"}else "xx"}
+                                    @for(col <- 0 until controller.b2.blockmaxy){
+                                        @for(row <- 0 until controller.b2.blockmaxx) {
+                                            @{if(controller.getCellStatusAtBlock(2,row,col)==0){"0"}else "x"}
                                         }
                                     <br>
                                     }
                                 </td>
                                 <td>
                                     <h4>Block 3:<br></h4>
-                                    @for(col <- 1 to controller.b3.blockmaxy){
-                                        @for(row <- 1 to controller.b3.blockmaxx) {
-                                            @{if(controller.getCellStatusAtBlock(3,row,col)==0){"00"}else "xx"}
+                                    @for(col <- 0 until controller.b3.blockmaxy){
+                                        @for(row <- 0 until controller.b3.blockmaxx) {
+                                            @{if(controller.getCellStatusAtBlock(3,row,col)==0){"0"}else "x"}
                                         }
                                         <br>
                                         }

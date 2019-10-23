@@ -1,0 +1,25 @@
+.game {
+    border-style: inset;
+    border-width: 0.5em;
+    border-spacing: 0px;
+    border-color: green;
+    padding: 0.05em;
+    margin:fill;
+    width: 20%;
+}
+.number{
+    color: black;
+    display:inline;
+}
+.cell{
+    border-style:solid;
+    border-width: 0.05em;
+    border-spacing: 5px;
+    border-color: green;
+
+
+    display:inline;
+}
+.blocks{
+
+}

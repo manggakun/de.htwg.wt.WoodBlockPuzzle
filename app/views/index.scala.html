@@ -1,19 +1,95 @@
 @()
 
 @main("HTWG WoodBlockPuzzle") {
-
-    <h1>About WoodBlockPuzzle</h1>
-    <p>
-        WoodBlockPuzzle is a game based on the idea of Tetris.
-        Blocks must be placed in a limited space and, if possible, form closed rows which then dissolve.
-        But instead of moving blocks and the idea to insert these blocks quickly, everything is built like a puzzle, which can be thought about without time pressure.
-        the size of the gird is 8x8 in this case.
-    </p>
-
-    <p>
-        Collect points by inserting the given blocks into the grid and completing rows and columns.
-        Earn as many points as possible until there is no more room for any of the three blocks.
-        In this case you can give up and try again. Then the highscore is to be outbid.
-    </p>
+    <html>
+        <body>
+            <h1>About WoodBlockPuzzle</h1>
+            <p>
+                <h3>Origin</h3>
+                WoodBlockPuzzle is a game based on the idea of <a href="https://de.wikipedia.org/wiki/Tetris">Tetris</a>.<br>
+                Blocks must be placed in a limited space and, if possible, form closed rows which then dissolve. Full rows vanish an the player get points for that.
+                This goes on until the new blocks appear too fast to be used properly. The player gets under time pressure, makes mistakes and finally there is no more room for new blocks.
+            <br><b>Game over.</b>
+            </p>
+            <p>
+                <h3>Difference to <a href="https://de.wikipedia.org/wiki/Tetris">Tetris</a></h3>
+                WoodBlockPuzzle can be viewed as a game with a tetris-like feel, without the aspect of time pressure.<br>
+                Instead of moving blocks and the idea to insert these blocks quickly, everything is built like a puzzle, which can be thought about.
+                the size of the gird is 8x8 in this case.
+            </p>
+            <p>
+                <h3>Rules</h3>
+                You will start with an empty field and 3 random generated blocks.<br>
+            </p>
+            <table border = "1">
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+            </table>
+            <table>
+                <tr><td>
+                    <table border = "1">
+                    <tr><td>x__x__x</td></tr>
+                    <tr><td>x__x__x</td></tr>
+                    <tr><td>x__x__x</td></tr>
+                    </table>
+                </td><td>
+                    <table border = "1">
+                        <tr><td>x__x__x</td></tr>
+                        <tr><td>______x</td></tr>
+                    </table>
+                </td><td>
+                    <table border = "1">
+                        <tr><td>x__x</td></tr>
+                        <tr><td>___x</td></tr>
+                    </table>
+                </td></tr>
+            </table>
+            <p>
+                Insert this Blocks at any free position in the field, to get a full row or column.<br>
+                In this Example, we insert all blocks in a row at the top, connecting them to a full row.
+            </p>
+            <table border = "1">
+                <tr><td>x__x__x__x__x__x__x__x</td></tr>
+                <tr><td>x__x__x__0__0__x__0__x</td></tr>
+                <tr><td>x__x__x__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                <tr><td>0__0__0__0__0__0__0__0</td></tr>
+            </table>
+            <table>
+                <tr><td>
+                    <table border = "1">
+                        <tr><td>_</td></tr>
+                    </table>
+                </td><td>
+                    <table border = "1">
+                        <tr><td>_</td></tr>
+                    </table>
+                </td><td>
+                    <table border = "1">
+                    <tr><td>_</td></tr>
+                </table>
+                </td></tr>
+            </table>
+            <p>
+                <h3>Collect Points</h3>
+                Full rows or columns earn points for the player. After that the cells are free again.<br>
+                If all three existing blocks have been used, three new ones will appear and so on.
+            </p>
+            <p>
+                <h3>End of the Game</h3>
+                The game is over when the player can no longer use any of his given blocks. He is forced to give up.
+                This saves the player's current high score, which he then has to beat in a new attempt.
+            </p>
+        </body>
+    </html>
 
 }

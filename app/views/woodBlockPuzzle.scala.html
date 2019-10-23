@@ -6,11 +6,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>The Game</title>
+        <title>WoodBlockPuzzle</title>
     </head>
     <body>
         <h1>WoodBlockPuzzle</h1>
-        <table style="width:1000%">
+        <table>
         @main("HTWG WoodBlockPuzzle") {
             <div class="WoodBlockPuzzleController">
                 <tr>
@@ -19,6 +19,8 @@
                     <th>
                         <div class="Count">
                         @{"Count: "+controller.returnCount}
+                        </div>
+                        <div class="Highscore">
                         @{"Highscore: "+controller.returnHighscore}
                         </div>
                     </th>
@@ -49,31 +51,44 @@
                         <table>
                             <tr>
                                 <td>
-                                    <h4>Block 1:<br></h4>
-                                    @for(col <- 0 until controller.b1.blockmaxy){
-                                        @for(row <- 0 until controller.b1.blockmaxx) {
-                                            @{if(controller.getCellStatusAtBlock(1,row,col)==0){"0"} else "x"}
-                                        }
-                                        <br>
-                                    }
-                                </td>
-                                <td>
-                                    <h4>Block 2:<br></h4>
-                                    @for(col <- 0 until controller.b2.blockmaxy){
-                                        @for(row <- 0 until controller.b2.blockmaxx) {
-                                            @{if(controller.getCellStatusAtBlock(2,row,col)==0){"0"}else "x"}
-                                        }
-                                    <br>
-                                    }
-                                </td>
-                                <td>
-                                    <h4>Block 3:<br></h4>
-                                    @for(col <- 0 until controller.b3.blockmaxy){
-                                        @for(row <- 0 until controller.b3.blockmaxx) {
-                                            @{if(controller.getCellStatusAtBlock(3,row,col)==0){"0"}else "x"}
-                                        }
+                                    <div id="Block1">
+                                        <h4>Block 1:<br></h4>
+                                    </div>
+                                    <div id="Block1Cells">
+                                        @for(col <- 0 until controller.b1.blockmaxy){
+                                            @for(row <- 0 until controller.b1.blockmaxx) {
+                                                @{if(controller.getCellStatusAtBlock(1,row,col)==0){"0"} else "x"}
+                                            }
                                         <br>
                                         }
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div id="Block2">
+                                        <h4>Block 2:<br></h4>
+                                    </div>
+                                    <div id="Block2Cells">
+                                        @for(col <- 0 until controller.b2.blockmaxy){
+                                            @for(row <- 0 until controller.b2.blockmaxx) {
+                                                @{if(controller.getCellStatusAtBlock(2,row,col)==0){"0"}else "x"}
+                                            }
+                                        <br>
+                                        }
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="Block3">
+                                        <h4>Block 3:<br></h4>
+                                    </div>
+                                    <div id="Block3Cells">
+                                        @for(col <- 0 until controller.b3.blockmaxy){
+                                            @for(row <- 0 until controller.b3.blockmaxx) {
+                                                @{if(controller.getCellStatusAtBlock(3,row,col)==0){"0"}else "x"}
+                                            }
+                                            <br>
+                                        }
+                                    </div>
                                 </td>
                             </tr>
                         </table>
@@ -81,15 +96,10 @@
                     </td>
                     <td></td>
                 </tr>
-                <tr>
 @*Section for the Statustext*@
-                    <td></td>
-                    <td>
-                        <div class="Statustext">
-                            <h3>Last action: @{controller.statusText}</h3>
-                        </div>
-                    </td>
-                </tr>
+            </div>
+            <div class="Statustext">
+                <h3>Last action: @{controller.statusText}</h3>
             </div>
         }
 

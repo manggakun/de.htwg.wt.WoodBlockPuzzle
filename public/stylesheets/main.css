@@ -1,25 +1,68 @@
-.game {
-    border-style: inset;
-    border-width: 0.5em;
-    border-spacing: 0px;
-    border-color: green;
-    padding: 0.05em;
-    margin:fill;
-    width: 20%;
+body{
+    background-image: url("public/images/spacebackground.jpg");
 }
-.number{
-    color: black;
-    display:inline;
+.fieldAndBlocks{
+    display: block;
+    border-style: solid;
+    border-color:greenyellow;
+    width: auto;
+    height: auto;
+    background-color: darkgrey;
+}
+.game {
+    display: block;
+    margin: 20px 20px 20px 20px;
+    width: 90%;
+    height:100%;
+    background-color: grey;
+}
+.cellRow{
+    display: block;
 }
 .cell{
     border-style:solid;
-    border-width: 0.05em;
-    border-spacing: 5px;
-    border-color: green;
-
-
-    display:inline;
+    height: 30px;
+    width: 30px;
+    display:inline-block;
+}
+.clear{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
+.set{
+    background-color: green;
+    height: 100%;
+    width: 100%;
 }
 .blocks{
-
+    border-style: double;
+    border-color: black;
+}
+.block{
+    background-color: azure;
+    display: block;
+    margin: 20px 20px 20px 20px;
+    width: 90%;
+    height:100%;
+}
+.blockCell{
+    margin: 0%;
+    height: 20px;
+    width: 20px;
+    display:inline-block;
+}
+.blockClear{
+    /*border-style: solid;*/
+    /*background-color: white;*/
+    /*margin: 0%;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+}
+.blockSet{
+    border-style: solid;
+    background-color: green;
+    margin: 0%;
+    height: 100%;
+    width: 100%;
 }

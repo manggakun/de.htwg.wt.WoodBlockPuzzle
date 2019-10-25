@@ -14,10 +14,10 @@
             <div class="WoodBlockPuzzleController">
 @*Section for Count and Highscore*@
                 <div class = "infos">
-                        <div id="count">
+                        <div id="text">
                         @{"Count: "+controller.returnCount}
                         </div>
-                        <div id="highscore">
+                        <div id="text">
                         @{"Highscore: "+controller.returnHighscore}
                         </div>
                 </div>
@@ -40,56 +40,56 @@
 @*Section for the 3 Blocks*@
                         <div class="blocks">
 @*Extra table for the blocks*@
-                                    <div class="block1">
-                                        <h4>Block 1:<br></h4>
+@*                            <div class="block1">*@
+@*                                <div id="text">Block 1:<br></div>*@
+@*                            </div>*@
+                            <div class="block">
+                                @for(col <- 0 until controller.b1.blockmaxy){
+                                    <div class="cellRow">
+                                    @for(row <- 0 until controller.b1.blockmaxx) {
+                                        <div class="blockCell">
+                                            @if(controller.getCellStatusAtBlock(1,row,col)==0){<div class="blockClear"></div>
+                                            }else{ <div class="blockSet"></div> }
+                                        </div>
+                                    }
                                     </div>
-                                    <div class="block">
-                                        @for(col <- 0 until controller.b1.blockmaxy){
-                                            <div class="cellRow">
-                                            @for(row <- 0 until controller.b1.blockmaxx) {
-                                                <div class="blockCell">
-                                                    @if(controller.getCellStatusAtBlock(1,row,col)==0){<div class="blockClear"></div>
-                                                    }else{ <div class="blockSet"></div> }
-                                                </div>
-                                            }
-                                            </div>
-                                        }
+                                }
+                            </div>
+@*                            <div class="block2">*@
+@*                                <div id="text">Block 2:<br></div>*@
+@*                            </div>*@
+                            <div class="block">
+                                @for(col <- 0 until controller.b2.blockmaxy){
+                                    <div class="cellRow">
+                                    @for(row <- 0 until controller.b2.blockmaxx) {
+                                        <div class="blockCell">
+                                            @if(controller.getCellStatusAtBlock(2,row,col)==0){<div class="blockClear"></div>
+                                            }else{ <div class="blockSet"></div> }
+                                        </div>
+                                    }
                                     </div>
-                                    <div class="block2">
-                                        <h4>Block 2:<br></h4>
+                                }
+                            </div>
+@*                            <div class="block3">*@
+@*                                <div id="text">Block 3:<br></div>*@
+@*                            </div>*@
+                            <div class="block">
+                                @for(col <- 0 until controller.b3.blockmaxy){
+                                    <div class="cellRow">
+                                    @for(row <- 0 until controller.b3.blockmaxx) {
+                                        <div class="blockCell">
+                                            @if(controller.getCellStatusAtBlock(3,row,col)==0){<div class="blockClear"></div>
+                                            }else{ <div class="blockSet"></div> }
+                                        </div>
+                                    }
                                     </div>
-                                    <div class="block">
-                                        @for(col <- 0 until controller.b2.blockmaxy){
-                                            <div class="cellRow">
-                                            @for(row <- 0 until controller.b2.blockmaxx) {
-                                                <div class="blockCell">
-                                                    @if(controller.getCellStatusAtBlock(2,row,col)==0){<div class="blockClear"></div>
-                                                    }else{ <div class="blockSet"></div> }
-                                                </div>
-                                            }
-                                            </div>
-                                        }
-                                    </div>
-                                    <div class="block3">
-                                        <h4>Block 3:<br></h4>
-                                    </div>
-                                    <div class="block">
-                                        @for(col <- 0 until controller.b3.blockmaxy){
-                                            <div class="cellRow">
-                                            @for(row <- 0 until controller.b3.blockmaxx) {
-                                                <div class="blockCell">
-                                                    @if(controller.getCellStatusAtBlock(3,row,col)==0){<div class="blockClear"></div>
-                                                    }else{ <div class="blockSet"></div> }
-                                                </div>
-                                            }
-                                            </div>
-                                        }
-                                    </div>
+                                }
+                            </div>
                         </div>
                 </div>
 @*Section for the Statustext*@
             </div>
-            <div class="statusText">
+            <div id="text">
                 Last action: @{controller.statusText}
             </div>
         }

@@ -1,5 +1,12 @@
+:root{
+    --cellsize: 30px;
+}
+
 body{
     background-image: url("public/images/spacebackground.jpg");
+}
+h1{
+    font-family: "Comic Sans MS", Comic Sans, cursive;
 }
 .fieldAndBlocks{
     display: block;
@@ -8,21 +15,23 @@ body{
     width: auto;
     height: auto;
     background-color: darkgrey;
+    float: right;
 }
 .game {
     display: block;
+    float: top;
     margin: 20px 20px 20px 20px;
-    width: 90%;
-    height:100%;
-    background-color: grey;
+    /*background-color: grey;*/
 }
 .cellRow{
     display: block;
 }
 .cell{
     border-style:solid;
-    height: 30px;
-    width: 30px;
+    height: var(--cellsize);
+    width: var(--cellsize);
+    /*height: 12.5%;*/
+    /*width: 12.5%;*/
     display:inline-block;
 }
 .clear{
@@ -38,18 +47,22 @@ body{
 .blocks{
     border-style: double;
     border-color: black;
+    display: block;
 }
 .block{
-    background-color: azure;
-    display: block;
-    margin: 20px 20px 20px 20px;
-    width: 90%;
-    height:100%;
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+.block:last-child{
+    margin-right: 0;
 }
 .blockCell{
-    margin: 0%;
-    height: 20px;
-    width: 20px;
+    height: var(--cellsize);
+    width: var(--cellsize);
     display:inline-block;
 }
 .blockClear{
@@ -62,7 +75,15 @@ body{
 .blockSet{
     border-style: solid;
     background-color: green;
-    margin: 0%;
     height: 100%;
     width: 100%;
+}
+.infos{
+    border-style: ridge;
+    border-color: green;
+    display: block;
+    background-color: darkgrey;
+}
+#text{
+    font-family: "Comic Sans MS", Comic Sans, cursive;
 }

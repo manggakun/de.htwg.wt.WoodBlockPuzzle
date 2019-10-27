@@ -47,22 +47,36 @@ h1{
 .blocks{
     border-style: double;
     border-color: black;
-    display: block;
+    display: inline-block;
+    width: 100%;
 }
-.block{
+#block1{
     float: left;
-    width: 32%;
+    width: 31%;
     margin-right: 2%;
-    padding: 20px;
+    padding: 2%;
     box-sizing: border-box;
+    display: inline;
+}
+#block2{
+    float: left;
+    width: 31%;
+    margin-right: 2%;
+    padding: 2%;
+    box-sizing: border-box;
+    display: inline;
+}
+#block3{
+    float: right;
+    width: 31%;
+    padding: 2%;
+    box-sizing: border-box;
+    display: inline;
+}
 
-}
-.block:last-child{
-    margin-right: 0;
-}
 .blockCell{
-    height: var(--cellsize);
-    width: var(--cellsize);
+    height: 20px;
+    width: 20px;
     display:inline-block;
 }
 .blockClear{

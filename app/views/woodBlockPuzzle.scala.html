@@ -39,11 +39,7 @@
                     <td></td>
 @*Section for the 3 Blocks*@
                         <div class="blocks">
-@*Extra table for the blocks*@
-@*                            <div class="block1">*@
-@*                                <div id="text">Block 1:<br></div>*@
-@*                            </div>*@
-                            <div class="block">
+                            <div id="block1">
                                 @for(col <- 0 until controller.b1.blockmaxy){
                                     <div class="cellRow">
                                     @for(row <- 0 until controller.b1.blockmaxx) {
@@ -55,10 +51,7 @@
                                     </div>
                                 }
                             </div>
-@*                            <div class="block2">*@
-@*                                <div id="text">Block 2:<br></div>*@
-@*                            </div>*@
-                            <div class="block">
+                            <div id="block2">
                                 @for(col <- 0 until controller.b2.blockmaxy){
                                     <div class="cellRow">
                                     @for(row <- 0 until controller.b2.blockmaxx) {
@@ -70,10 +63,7 @@
                                     </div>
                                 }
                             </div>
-@*                            <div class="block3">*@
-@*                                <div id="text">Block 3:<br></div>*@
-@*                            </div>*@
-                            <div class="block">
+                            <div id="block3">
                                 @for(col <- 0 until controller.b3.blockmaxy){
                                     <div class="cellRow">
                                     @for(row <- 0 until controller.b3.blockmaxx) {

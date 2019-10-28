@@ -1,25 +1,31 @@
 :root{
     --cellsize: 30px;
 }
-
-body{
-    background-image: url("public/images/spacebackground.jpg");
+.imageBackground{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    opacity: 50%;
 }
 h1{
     font-family: "Comic Sans MS", Comic Sans, cursive;
 }
 .fieldAndBlocks{
-    display: block;
+    display: inline-block;
     border-style: solid;
     border-color:greenyellow;
-    width: auto;
-    height: auto;
+    /*width: auto;*/
+    /*height: auto;*/
     background-color: darkgrey;
-    float: right;
+    /*float: right;*/
+    position: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 .game {
     display: block;
-    float: top;
+    /*float: top;*/
     margin: 20px 20px 20px 20px;
     /*background-color: grey;*/
 }
@@ -57,6 +63,7 @@ h1{
     padding: 2%;
     box-sizing: border-box;
     display: inline;
+    justify-content: center;
 }
 #block2{
     float: left;
@@ -65,6 +72,7 @@ h1{
     padding: 2%;
     box-sizing: border-box;
     display: inline;
+    justify-content: center;
 }
 #block3{
     float: right;
@@ -72,6 +80,7 @@ h1{
     padding: 2%;
     box-sizing: border-box;
     display: inline;
+    justify-content: center;
 }
 
 .blockCell{

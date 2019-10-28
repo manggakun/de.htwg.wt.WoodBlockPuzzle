@@ -103,6 +103,7 @@ h1{
     width: 100%;
 }
 .infos{
+    display: inline-block;
     border-style: ridge;
     border-color: green;
     display: block;

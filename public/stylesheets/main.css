@@ -1,5 +1,5 @@
 :root{
-    --cellsize: 30px;
+    --cellsize: 2em;
 }
 .imageBackground{
     position: absolute;
@@ -14,37 +14,22 @@ h1{
 }
 .woodBlockPuzzleController{
     display: inline-block;
-    margin-right: 10%;
-    margin-left: 10%;
-    background-color: darkgrey;
-    width: 80%;
-}
-/*.fieldAndBlocks{*/
-/*    display: inline-block;*/
-/*    border-style: solid;*/
-/*    border-color: greenyellow;*/
-/*    width: auto;*/
-/*    height: auto;*/
-/*    background-color: darkgrey;*/
-/*    position: center;*/
-/*    margin-left: auto;*/
-/*    margin-right: auto;*/
-/*    float: left;*/
-/*}*/
-.game {
-    width: auto;
-    margin-right: 2%;
-    padding: 2%;
-    padding-right: 3%;
-    box-sizing: border-box;
-    display: inline-block;
+    margin-right: 20vw;
+    margin-left: 20vw;
     border-style: solid;
+    width: 60vw;
+    height: 50%;
+}
+.game {
+    float: left;
+    width: 20vw;
     height: auto;
-    background-color: darkgrey;
-    /*display: block;*/
-    /*float: top;*/
-    /*margin: 20px 20px 20px 20px;*/
-    /*background-color: grey;*/
+    /*     padding-right: 2%; */
+    /*     padding: 2%; */
+    display: inline-block;
+    /*     border-style: solid; */
+    background-color: blue;
+
 }
 .cellRow{
     display: block;
@@ -52,8 +37,6 @@ h1{
 .cell{
     height: var(--cellsize);
     width: var(--cellsize);
-    /*height: 12.5%;*/
-    /*width: 12.5%;*/
     display:inline-block;
 }
 .clear{
@@ -69,10 +52,13 @@ h1{
     width: 100%;
 }
 .blocks{
-    border-style: double;
+    float: left;
+    width: 18vw;
+    height: 30vw;
+    /*     border-style: double; */
     border-color: black;
-    width: 30%;
-    float: right;
+    background-color: orange;
+
 }
 #block1{
     margin-right: 2%;
@@ -108,11 +94,14 @@ h1{
     width: 100%;
 }
 .infos{
-    border-style: ridge;
-    border-color: green;
-    display: block;
-    background-color: darkgrey;
     float: left;
+    width: 20vw;
+    height: 30em;
+    /*     border-style: ridge;
+        border-color: green; */
+    display: inline-block;
+    background-color: darkgrey;
+
 }
 #text{
     font-family: "Comic Sans MS", Comic Sans, cursive;

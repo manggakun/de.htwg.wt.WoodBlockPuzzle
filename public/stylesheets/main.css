@@ -5,28 +5,45 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
     z-index: -100;
     opacity: 50%;
 }
 h1{
     font-family: "Comic Sans MS", Comic Sans, cursive;
 }
-.fieldAndBlocks{
+.woodBlockPuzzleController{
+    display: inline-block;
+    margin-right: 10%;
+    margin-left: 10%;
+    background-color: darkgrey;
+    width: 80%;
+}
+/*.fieldAndBlocks{*/
+/*    display: inline-block;*/
+/*    border-style: solid;*/
+/*    border-color: greenyellow;*/
+/*    width: auto;*/
+/*    height: auto;*/
+/*    background-color: darkgrey;*/
+/*    position: center;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    float: left;*/
+/*}*/
+.game {
+    width: auto;
+    margin-right: 2%;
+    padding: 2%;
+    padding-right: 3%;
+    box-sizing: border-box;
     display: inline-block;
     border-style: solid;
-    border-color:greenyellow;
-    /*width: auto;*/
-    /*height: auto;*/
+    height: auto;
     background-color: darkgrey;
-    /*float: right;*/
-    position: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-.game {
-    display: block;
+    /*display: block;*/
     /*float: top;*/
-    margin: 20px 20px 20px 20px;
+    /*margin: 20px 20px 20px 20px;*/
     /*background-color: grey;*/
 }
 .cellRow{
@@ -54,33 +71,21 @@ h1{
 .blocks{
     border-style: double;
     border-color: black;
-    display: inline-block;
-    width: 100%;
+    width: 30%;
+    float: right;
 }
 #block1{
-    float: left;
-    width: 31%;
     margin-right: 2%;
     padding: 2%;
-    box-sizing: border-box;
-    display: inline;
     justify-content: center;
 }
 #block2{
-    float: left;
-    width: 31%;
     margin-right: 2%;
     padding: 2%;
-    box-sizing: border-box;
-    display: inline;
     justify-content: center;
 }
 #block3{
-    float: right;
-    width: 31%;
     padding: 2%;
-    box-sizing: border-box;
-    display: inline;
     justify-content: center;
 }
 
@@ -103,11 +108,11 @@ h1{
     width: 100%;
 }
 .infos{
-    display: inline-block;
     border-style: ridge;
     border-color: green;
     display: block;
     background-color: darkgrey;
+    float: left;
 }
 #text{
     font-family: "Comic Sans MS", Comic Sans, cursive;

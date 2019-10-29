@@ -11,7 +11,7 @@
     <body>
         <h1>WoodBlockPuzzle</h1>
         @main("HTWG WoodBlockPuzzle") {
-            <div class="WoodBlockPuzzleController">
+            <div class="woodBlockPuzzleController">
 @*Section for Count and Highscore*@
                 <div class = "infos">
                         <div id="text">
@@ -20,9 +20,12 @@
                         <div id="text">
                         @{"Highscore: "+controller.returnHighscore}
                         </div>
+                        <div id="text">
+                            Last action: @{controller.statusText}
+                        </div>
                 </div>
 @*Section for field*@
-                <div class="fieldAndBlocks">
+@*                <div class="fieldAndBlocks">*@
                         <div class="game">
                         @for(col <- 1 to size){
                             <div class="cellRow">
@@ -76,11 +79,8 @@
                                 }
                             </div>
                         </div>
-                </div>
+@*                </div>*@
 @*Section for the Statustext*@
-            </div>
-            <div id="text">
-                Last action: @{controller.statusText}
             </div>
         }
     </body>

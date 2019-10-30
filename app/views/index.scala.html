@@ -2,7 +2,10 @@
 
 @main("HTWG WoodBlockPuzzle") {
     <html>
-        <body>
+        <head>
+            <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        </head>
+        <body id="about-body">
             <h1>About WoodBlockPuzzle</h1>
             <p>
                 <h3>Origin</h3>
@@ -90,6 +93,9 @@
                 This saves the player's current high score, which he then has to beat in a new attempt.
             </p>
         </body>
+        <div class="center">
+            <img class="aboutBackground" src=@routes.Assets.versioned("images/spacebackground.jpg")>
+        </div>
     </html>
 
 }

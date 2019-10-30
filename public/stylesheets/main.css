@@ -9,7 +9,18 @@
     z-index: -100;
     opacity: 50%;
 }
-h1{
+
+.aboutBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    z-index: -100;
+    opacity: 0.3;
+}
+
+h1, h3{
     font-family: "Comic Sans MS", Comic Sans, cursive;
 }
 .woodBlockPuzzleController{
@@ -105,4 +116,15 @@ h1{
 }
 #text{
     font-family: "Comic Sans MS", Comic Sans, cursive;
+}
+
+#about-body {
+    text-align: center;
+    font-family: "Comic Sans MS", Comic Sans, cursive;
+}
+
+table {
+    position:relative;
+    left: 35%;
+    margin: 5px
 }

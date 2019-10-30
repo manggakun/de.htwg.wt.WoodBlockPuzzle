@@ -27,6 +27,7 @@
 @*Section for field*@
 @*                <div class="fieldAndBlocks">*@
                         <div class="game">
+                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
@@ -42,7 +43,7 @@
                     <td></td>
 @*Section for the 3 Blocks*@
                         <div class="blocks">
-                            <div id="block1">
+                            <div class="block">
                                 @for(col <- 0 until controller.b1.blockmaxy){
                                     <div class="cellRow">
                                     @for(row <- 0 until controller.b1.blockmaxx) {
@@ -54,7 +55,7 @@
                                     </div>
                                 }
                             </div>
-                            <div id="block2">
+                            <div class="block">
                                 @for(col <- 0 until controller.b2.blockmaxy){
                                     <div class="cellRow">
                                     @for(row <- 0 until controller.b2.blockmaxx) {
@@ -66,7 +67,7 @@
                                     </div>
                                 }
                             </div>
-                            <div id="block3">
+                            <div class="block">
                                 @for(col <- 0 until controller.b3.blockmaxy){
                                     <div class="cellRow">
                                     @for(row <- 0 until controller.b3.blockmaxx) {

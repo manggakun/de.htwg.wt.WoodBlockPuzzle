@@ -7,6 +7,8 @@
 <html>
     <head>
         <title>WoodBlockPuzzle</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
     </head>
     <body>
         <h1>WoodBlockPuzzle</h1>
@@ -27,13 +29,13 @@
 @*Section for field*@
 @*                <div class="fieldAndBlocks">*@
                         <div class="game">
-                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
+@*                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>*@
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
                                 <div class="cell">
-                                    @if(controller.getCellStatusAtField(row,col)==0){<div class="clear"></div>
-                                    }else{ <div class="set"></div> }
+                                    @if(controller.getCellStatusAtField(row,col)==0){<a class="col-8 bg-white" role="button" href="/add/@row/@col"></a>
+                                    }else{ <a class="set"></a> }
                                 </div>
                             }
                             </div>

@@ -12,6 +12,10 @@ GET    /reset                       controllers.WoodBlockPuzzleController.reset
 
 GET    /add/:b/:x/:y                controllers.WoodBlockPuzzleController.add(b:Int, x:Int, y:Int)
 
+GET    /addchosen/:x/:y             controllers.WoodBlockPuzzleController.addChosen(x:Int, y:Int)
+
+GET    /setchosen/:b                controllers.WoodBlockPuzzleController.setChosen(b:Int)
+
 GET    /g                           controllers.WoodBlockPuzzleController.giveup
 
 GET    /r                           controllers.WoodBlockPuzzleController.reverse

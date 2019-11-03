@@ -7,15 +7,14 @@
 <html>
     <head>
         <title>WoodBlockPuzzle</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
     </head>
     <body>
         <h1>WoodBlockPuzzle</h1>
         @main("HTWG WoodBlockPuzzle") {
             <div class="woodBlockPuzzleController">
 @*Section for Count and Highscore*@
-                <div class = "infos">
+                <div class="row">
+                <div class = "col-3" id = "infos">
                         <div id="text">
                         @{"Count: "+controller.returnCount}
                         </div>
@@ -29,20 +28,19 @@
 @*Section for field*@
 @*                <div class="fieldAndBlocks">*@
                         <div class="game">
-@*                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>*@
+                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
                                 <div class="cell">
-                                    @if(controller.getCellStatusAtField(row,col)==0){<a class="col-8 bg-white" role="button" href="/add/@row/@col"></a>
+                                    @if(controller.getCellStatusAtField(row,col)==0){<div class="clear" role="button" href="/addChosen/@row/@col"></div>
                                     }else{ <a class="set"></a> }
                                 </div>
                             }
                             </div>
                             }
                         </div>
-
-                    <td></td>
+                </div>
 @*Section for the 3 Blocks*@
                         <div class="blocks">
                             <div class="block">

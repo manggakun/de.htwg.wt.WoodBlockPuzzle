@@ -12,7 +12,7 @@
             <div class="woodBlockPuzzleController">
 @*Section for Count and Highscore*@
                 <div class="row">
-                <div class = "col-3" id = "infos">
+                    <div class = "col" id = "infos">
                         <div id="text">
                         @{"Count: "+controller.returnCount}
                         </div>
@@ -22,64 +22,74 @@
                         <div id="text">
                             Last action: @{controller.statusText}
                         </div>
-                </div>
+                    </div>
 @*Section for field*@
-@*                <div class="fieldAndBlocks">*@
-                        <div class="game">
+                        <div class="col-6" id="game">
                             <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
+                                <a href="/addChosen/@row/@col">
                                 <div class="cell">
-                                    @if(controller.getCellStatusAtField(row,col)==0){<div class="clear" role="button" href="/addChosen/@row/@col"></div>
-                                    }else{ <a class="set"></a> }
+                                    @if(controller.getCellStatusAtField(row,col)==0){
+                                        <div class="clear"></div>
+                                    }else{
+                                        <div class="set"></div>
+                                    }
                                 </div>
+                                </a>
                             }
                             </div>
                             }
                         </div>
+                    <div class = "col"></div>
                 </div>
 @*Section for the 3 Blocks*@
-                        <div class="blocks">
+                <div class="row">
+                    <div class="col bg-success"></div>
+                    <div class="col-6" id="blocks">
+                        <a href="/setChosen/1">
                             <div class="block">
-                                @for(col <- 0 until controller.b1.blockmaxy){
-                                    <div class="cellRow">
-                                    @for(row <- 0 until controller.b1.blockmaxx) {
-                                        <div class="blockCell">
-                                            @if(controller.getCellStatusAtBlock(1,row,col)==0){<div class="blockClear"></div>
-                                            }else{ <div class="blockSet"></div> }
-                                        </div>
-                                    }
+                            @for(col <- 0 until controller.b1.blockmaxy){
+                                <div class="cellRow">
+                                @for(row <- 0 until controller.b1.blockmaxx) {
+                                    <div class="blockCell">
+                                        @if(controller.getCellStatusAtBlock(1,row,col)==0){<div class="blockClear"></div>
+                                        }else{ <div class="blockSet"></div> }
                                     </div>
                                 }
-                            </div>
+                                </div>
+                            }</div>
+                        </a>
+                        <a href="/setChosen/2">
                             <div class="block">
-                                @for(col <- 0 until controller.b2.blockmaxy){
-                                    <div class="cellRow">
-                                    @for(row <- 0 until controller.b2.blockmaxx) {
-                                        <div class="blockCell">
-                                            @if(controller.getCellStatusAtBlock(2,row,col)==0){<div class="blockClear"></div>
-                                            }else{ <div class="blockSet"></div> }
-                                        </div>
-                                    }
+                            @for(col <- 0 until controller.b2.blockmaxy){
+                                <div class="cellRow">
+                                @for(row <- 0 until controller.b2.blockmaxx) {
+                                    <div class="blockCell">
+                                        @if(controller.getCellStatusAtBlock(2,row,col)==0){<div class="blockClear"></div>
+                                        }else{ <div class="blockSet"></div> }
                                     </div>
                                 }
-                            </div>
+                                </div>
+                            }</div>
+                        </a>
+                        <a href="/setChosen/3">
                             <div class="block">
-                                @for(col <- 0 until controller.b3.blockmaxy){
-                                    <div class="cellRow">
-                                    @for(row <- 0 until controller.b3.blockmaxx) {
-                                        <div class="blockCell">
-                                            @if(controller.getCellStatusAtBlock(3,row,col)==0){<div class="blockClear"></div>
-                                            }else{ <div class="blockSet"></div> }
-                                        </div>
-                                    }
+                            @for(col <- 0 until controller.b3.blockmaxy){
+                                <div class="cellRow">
+                                @for(row <- 0 until controller.b3.blockmaxx) {
+                                    <div class="blockCell">
+                                        @if(controller.getCellStatusAtBlock(3,row,col)==0){<div class="blockClear"></div>
+                                        }else{ <div class="blockSet"></div> }
                                     </div>
                                 }
-                            </div>
-                        </div>
-@*                </div>*@
-@*Section for the Statustext*@
+                                </div>
+                            }</div>
+                        </a>
+                    </div>
+                    <div class="col bg-success"></div>
+                </div>
             </div>
         }
     </body>

@@ -19,93 +19,102 @@
             </nav>
             <h1>About WoodBlockPuzzle</h1>
             <div class="row">
-                <div class="col-4", id="origin">
+                <div class="col-4 bg-white", id="origin">
+                    <h3>Origin</h3>
+                    WoodBlockPuzzle is a game based on the idea of <a href="https://de.wikipedia.org/wiki/Tetris">Tetris</a>.<br>
+                    Blocks must be placed in a limited space and, if possible, form closed rows which then dissolve. Full rows vanish an the player get points for that.
+                    This goes on until the new blocks appear too fast to be used properly. The player gets under time pressure, makes mistakes and finally there is no more room for new blocks.
+                    <br><b>Game over.</b>
                 </div>
-            <div class="col-4 bg-white border-danger b", id="origin">
-                <h3>Origin</h3>
-                WoodBlockPuzzle is a game based on the idea of <a href="https://de.wikipedia.org/wiki/Tetris">Tetris</a>.<br>
-                Blocks must be placed in a limited space and, if possible, form closed rows which then dissolve. Full rows vanish an the player get points for that.
-                This goes on until the new blocks appear too fast to be used properly. The player gets under time pressure, makes mistakes and finally there is no more room for new blocks.
-                <br><b>Game over.</b>
+                <div class="col-4"></div>
+                <div class="col-4" id="rules">
+                    <h3>Rules</h3>
+                    You will start with an empty field and 3 random generated blocks.<br>
+                    Insert this Blocks at any free position in the field, to get a full row or column.<br>
+                    In this Example, we insert all blocks in a row at the top, connecting them to a full row.
+                </div>
             </div>
-            <div class="col-4 black", id = "difference">
-                <h3>Difference to <a href="https://de.wikipedia.org/wiki/Tetris">Tetris</a></h3>
-                WoodBlockPuzzle can be viewed as a game with a tetris-like feel, without the aspect of time pressure.<br>
-                Instead of moving blocks and the idea to insert these blocks quickly, everything is built like a puzzle, which can be thought about as long as you want.
-                <br>The size of the gird is 8x8 in this case.
+            <div class="row">
+                <div class="col-4", id = "difference">
+                    <h3>Difference to <a href="https://de.wikipedia.org/wiki/Tetris">Tetris</a></h3>
+                    WoodBlockPuzzle can be viewed as a game with a tetris-like feel, without the aspect of time pressure.<br>
+                    Instead of moving blocks and the idea to insert these blocks quickly, everything is built like a puzzle, which can be thought about as long as you want.
+                    <br>The size of the gird is 8x8 in this case.
+                </div>
+                <div class="col-4">
+                    <table border = "1">
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                        <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                    </table>
+                    <table>
+                        <tr><td>
+                            <table border = "1">
+                                <tr><td>x__x__x</td></tr>
+                                <tr><td>x__x__x</td></tr>
+                                <tr><td>x__x__x</td></tr>
+                            </table>
+                        </td><td>
+                            <table border = "1">
+                                <tr><td>x__x__x</td></tr>
+                                <tr><td>______x</td></tr>
+                            </table>
+                        </td><td>
+                            <table border = "1">
+                                <tr><td>x__x</td></tr>
+                                <tr><td>___x</td></tr>
+                            </table>
+                        </td></tr>
+                    </table>
+                </div>
+                <div class="col-4" id="collectPoints">
+                    <h3>Collect Points</h3>
+                    Full rows or columns earn points for the player. After that the cells are free again.<br>
+                    If all three existing blocks have been used, three new ones will appear and so on.
+                </div>
             </div>
-            </div>
-            <div class="textBlock">
-                <h3>Rules</h3>
-                You will start with an empty field and 3 random generated blocks.<br>
-            </div>
-            <table border = "1">
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-            </table>
-            <table>
-                <tr><td>
-                    <table border = "1">
-                        <tr><td>x__x__x</td></tr>
-                        <tr><td>x__x__x</td></tr>
-                        <tr><td>x__x__x</td></tr>
-                    </table>
-                </td><td>
-                    <table border = "1">
-                        <tr><td>x__x__x</td></tr>
-                        <tr><td>______x</td></tr>
-                    </table>
-                </td><td>
-                    <table border = "1">
-                        <tr><td>x__x</td></tr>
-                        <tr><td>___x</td></tr>
-                    </table>
-                </td></tr>
-            </table>
-            <div class="textBlock">
-                Insert this Blocks at any free position in the field, to get a full row or column.<br>
-                In this Example, we insert all blocks in a row at the top, connecting them to a full row.
-            </div>
-            <table border = "1">
-                <tr><td>x__x__x__x__x__x__x__x</td></tr>
-                <tr><td>x__x__x__0__0__x__0__x</td></tr>
-                <tr><td>x__x__x__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-                <tr><td>0__0__0__0__0__0__0__0</td></tr>
-            </table>
-            <table>
-                <tr><td>
-                    <table border = "1">
-                        <tr><td>_</td></tr>
-                    </table>
-                </td><td>
-                    <table border = "1">
-                        <tr><td>_</td></tr>
-                    </table>
-                </td><td>
-                    <table border = "1">
-                        <tr><td>_</td></tr>
-                    </table>
-                </td></tr>
-            </table>
-            <div class="textBlock", id="collectPoints">
-                <h3>Collect Points</h3>
-                Full rows or columns earn points for the player. After that the cells are free again.<br>
-                If all three existing blocks have been used, three new ones will appear and so on.
-            </div>
-            <div class="textBlock">
-                <h3>End of the Game</h3>
-                The game could theoretically continue endless, but it is over when the player can no longer use any of his given blocks. He is forced to give up.
-                This saves the player's current high score, which he then has to beat in a new attempt.
+            <div class="row">
+                <div class="col-4" id="rules2">
+
+                </div>
+
+                <div class="col-4">
+                <table border = "1">
+                    <tr><td>x__x__x__x__x__x__x__x</td></tr>
+                    <tr><td>x__x__x__0__0__x__0__x</td></tr>
+                    <tr><td>x__x__x__0__0__0__0__0</td></tr>
+                    <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                    <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                    <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                    <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                    <tr><td>0__0__0__0__0__0__0__0</td></tr>
+                </table>
+                <table>
+                    <tr><td>
+                        <table border = "1">
+                            <tr><td>_</td></tr>
+                        </table>
+                    </td><td>
+                        <table border = "1">
+                            <tr><td>_</td></tr>
+                        </table>
+                    </td><td>
+                        <table border = "1">
+                            <tr><td>_</td></tr>
+                        </table>
+                    </td></tr>
+                </table>
+                </div>
+                <div class="col-4" id="EndOfGame">
+                    <h3>End of the Game</h3>
+                    The game could theoretically continue endless, but it is over when the player can no longer use any of his given blocks. He is forced to give up.
+                    This saves the player's current high score, which he then has to beat in a new attempt.
+                </div>
             </div>
         </body>
         <div class="center">

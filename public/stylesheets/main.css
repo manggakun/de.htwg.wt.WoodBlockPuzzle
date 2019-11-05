@@ -1,5 +1,5 @@
 :root{
-    --cell-size: 2.6vw;
+    --cell-size: 3.0vw;
     --block-cell-size: 2.5vw;
     --block: 12.5vw;
     --game: 30vw;
@@ -130,4 +130,8 @@ table {
     position:relative;
     left: 35%;
     margin: 5px
+}
+a {
+    outline : none;
+    padding: 0;
 }

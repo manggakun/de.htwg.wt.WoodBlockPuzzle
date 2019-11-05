@@ -7,7 +7,7 @@
         <title>WoodBlockPuzzle</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="menubar">
             <a class="navbar-brand" href="#">WoodBlockPuzzle</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -21,12 +21,9 @@
                 </div>
             </div>
         </nav>
-
-        <h1>WoodBlockPuzzle</h1>
         @main("HTWG WoodBlockPuzzle") {
             <div class="woodBlockPuzzleController">
 @*Section for Count and Highscore*@
-                <div class="container-fluid">
                 <div class="row" id="infosAndGame">
                     <div class = "col" id = "infos">
                         <div class="text" id = "count">
@@ -40,8 +37,8 @@
                         </div>
                     </div>
 @*Section for field*@
-                        <div class="col-sm-4 bg-success" id="game">
-@*                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>*@
+                        <div class="col-sm-4" id="game" align="center">
+                        <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
@@ -60,12 +57,13 @@
                         </div>
                     <div class = "col"></div>
                 </div>
-                </div>
 @*Section for the 3 Blocks*@
                 <div class="row">
                     <div class="col bg-success"></div>
-                    <div class="col-6" id="blocks">
+                    <div class="col-6" id="blocks" align="center">
+                        <div class="row" id="blockrow">
                         <a href="/setChosen/1">
+                            <div class="col">
                             <div class="block">
                             @for(col <- 0 until controller.b1.blockmaxy){
                                 <div class="cellRow">
@@ -77,8 +75,10 @@
                                 }
                                 </div>
                             }</div>
+                            </div>
                         </a>
                         <a href="/setChosen/2">
+                            <div class="col">
                             <div class="block">
                             @for(col <- 0 until controller.b2.blockmaxy){
                                 <div class="cellRow">
@@ -90,8 +90,10 @@
                                 }
                                 </div>
                             }</div>
+                            </div>
                         </a>
                         <a href="/setChosen/3">
+                            <div class="col">
                             <div class="block">
                             @for(col <- 0 until controller.b3.blockmaxy){
                                 <div class="cellRow">
@@ -103,7 +105,9 @@
                                 }
                                 </div>
                             }</div>
+                            </div>
                         </a>
+                        </div>
                     </div>
                     <div class="col bg-success"></div>
                 </div>

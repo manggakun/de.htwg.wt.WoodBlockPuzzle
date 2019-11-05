@@ -36,12 +36,6 @@ h1, h3{
     font-family: "Comic Sans MS", Comic Sans, cursive;
 }
 .woodBlockPuzzleController{
-    /*             display: inline-block;
-                margin-right: 20vw;
-                margin-left: 20vw;
-                border-style: solid;
-                width: 60vw;
-                height: 50%; */
 }
 .game {
     position: absolute;
@@ -117,7 +111,7 @@ h1, h3{
     /*     background-color: darkgrey; */
 
 }
-#text{
+.text{
     font-family: "Comic Sans MS", Comic Sans, cursive;
 }
 

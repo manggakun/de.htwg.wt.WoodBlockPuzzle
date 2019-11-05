@@ -11,21 +11,22 @@
         @main("HTWG WoodBlockPuzzle") {
             <div class="woodBlockPuzzleController">
 @*Section for Count and Highscore*@
-                <div class="row">
+                <div class="container-fluid">
+                <div class="row" id="infosAndGame">
                     <div class = "col" id = "infos">
-                        <div id="text">
+                        <div class="text" id = "count">
                         @{"Count: "+controller.returnCount}
                         </div>
-                        <div id="text">
+                        <div class="text" id = "highscore">
                         @{"Highscore: "+controller.returnHighscore}
                         </div>
-                        <div id="text">
+                        <div class="text" id = "status">
                             Last action: @{controller.statusText}
                         </div>
                     </div>
 @*Section for field*@
-                        <div class="col-6" id="game">
-                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
+                        <div class="col-sm-4 bg-success" id="game">
+@*                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>*@
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
@@ -43,6 +44,7 @@
                             }
                         </div>
                     <div class = "col"></div>
+                </div>
                 </div>
 @*Section for the 3 Blocks*@
                 <div class="row">

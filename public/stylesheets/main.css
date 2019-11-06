@@ -29,6 +29,7 @@
     z-index: -50;
     opacity: 100%;
     border-style: solid;
+    object-fit: contain;
 
 }
 

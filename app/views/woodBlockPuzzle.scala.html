@@ -5,23 +5,39 @@
 <html>
     <head>
         <script>
+            function nextMove(e) {
+                var id = e.id;
+                var items = document.getElementsByClassName("cell");
+
+                for (var i = 0; i < items.length; i++) {
+                    items[i].addEventListener('click', sendLink);
+                }
+
+                function sendLink(e) {
+                    var url = "http://localhost:9000/add/" + id + this.id;
+                    window.location = url;
+                }
+            }
         </script>
         <title>WoodBlockPuzzle</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="menubar">
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
             <a class="navbar-brand" href="http://localhost:9000/about">WoodBlockPuzzle</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="http://localhost:9000/about">Rules <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="http://localhost:9000/reset" onclick="return confirm('Are you sure?')">New</a>
-                    <a class="nav-item nav-link" href="http://localhost:9000/r">Reverse</a>
-                    <a class="nav-item nav-link" href="http://localhost:9000/g">Give Up</a>
-                </div>
-            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:9000/about">Rules</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:9000/reset">NewGame</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:9000/r">Reverse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:9000/g">GiveUp</a>
+                </li>
+            </ul>
         </nav>
         @main("HTWG WoodBlockPuzzle") {
             <div class="woodBlockPuzzleController">
@@ -44,15 +60,13 @@
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
-                                <a href="/addChosen/@row/@col">
-                                <div class="cell">
+                                <div class="cell" id="/@row/@col">
                                     @if(controller.getCellStatusAtField(row,col)==0){
                                         <div class="clear"></div>
                                     }else{
                                         <div class="set"></div>
                                     }
                                 </div>
-                                </a>
                             }
                             </div>
                             }
@@ -64,9 +78,9 @@
                     <div class="col"></div>
                     <div class="col-6" id="blocks" align="center">
                         <div class="row" id="blockrow">
-                        <a href="/setChosen/1">
                             <div class="col">
                             <div class="block">
+                                <div  id="1" onclick="nextMove(this);">
                             @for(col <- 0 until controller.b1.blockmaxy){
                                 <div class="cellRow">
                                 @for(row <- 0 until controller.b1.blockmaxx) {
@@ -78,10 +92,10 @@
                                 </div>
                             }</div>
                             </div>
-                        </a>
-                        <a href="/setChosen/2">
+                            </div>
                             <div class="col">
-                            <div class="block">
+                            <div class="block" >
+                            <div id="2"  onclick="return nextMove(this);">
                             @for(col <- 0 until controller.b2.blockmaxy){
                                 <div class="cellRow">
                                 @for(row <- 0 until controller.b2.blockmaxx) {
@@ -91,12 +105,12 @@
                                     </div>
                                 }
                                 </div>
-                            }</div>
+                            }
                             </div>
-                        </a>
-                        <a href="/setChosen/3">
+                            </div>
+                            </div>
                             <div class="col">
-                            <div class="block">
+                            <div class="block" id="3"  onclick="return nextMove(this);">
                             @for(col <- 0 until controller.b3.blockmaxy){
                                 <div class="cellRow">
                                 @for(row <- 0 until controller.b3.blockmaxx) {
@@ -108,7 +122,6 @@
                                 </div>
                             }</div>
                             </div>
-                        </a>
                         </div>
                     </div>
                     <div class="col"></div>

@@ -1,3 +1,5 @@
+
+
 :root{
     --cell-size: 3.0vw;
     --block-cell-size: 2.5vw;
@@ -73,10 +75,21 @@ h1, h3{
     opacity: 60%;
 }
 .set{
-    background-color: green;
     height: 100%;
     width: 100%;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    background-color: green;
+
 }
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    from {background-color: red;}
+    to {background-color: green;}
+}
+
+
 #blocks{
     padding-top: 1%;
 }
@@ -134,3 +147,6 @@ a:hover
     margin: 10%;
     margin-left: 5%;
 }
+
+
+/*Special Buttons*/

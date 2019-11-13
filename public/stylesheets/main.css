@@ -78,14 +78,16 @@ h1, h3{
     height: 100%;
     width: 100%;
     -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 3s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
     background-color: green;
 }
 
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes example {
-    from {background-color: red;}
-    to {background-color: green;}
+    0%   {background-color: yellow;}
+    25%  {background-color: red;}
+    50%  {background-color: silver;}
+    100% {background-color: green;}
 }
 
 

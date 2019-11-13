@@ -56,7 +56,8 @@
                     </div>
 @*Section for field*@
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12" id="game" align="center">
-                        <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
+                            <div class="gameImageBackground"></div>
+@*                            <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>*@
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {

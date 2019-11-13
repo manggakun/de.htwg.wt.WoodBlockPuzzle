@@ -43,7 +43,7 @@
             <div class="woodBlockPuzzleController">
 @*Section for Count and Highscore*@
                 <div class="row" id="infosAndGame">
-                    <div class = "col-sm-4" id = "infos">
+                    <div class = "col-lg-4 col-md-6 col-sm-6 col-12" id = "infos">
                         <div class="text" id = "count">
                         @{"Count: "+controller.returnCount}
                         </div>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
 @*Section for field*@
-                        <div class="col-sm-4" id="game" align="center">
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12" id="game" align="center">
                         <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
                         @for(col <- 1 to size){
                             <div class="cellRow">
@@ -71,14 +71,13 @@
                             </div>
                             }
                         </div>
-                    <div class = "col"></div>
                 </div>
 @*Section for the 3 Blocks*@
                 <div class="row">
                     <div class="col"></div>
-                    <div class="col-6" id="blocks" align="center">
+                    <div class="col-md-6 col-sm-8 col-12" id="blocks" align="center">
                         <div class="row" id="blockrow">
-                            <div class="col">
+                            <div class="col-sm-4">
                             <div class="block">
                                 <div  id="1" onclick="nextMove(this);">
                             @for(col <- 0 until controller.b1.blockmaxy){
@@ -93,7 +92,7 @@
                             }</div>
                             </div>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-4">
                             <div class="block" >
                             <div id="2"  onclick="return nextMove(this);">
                             @for(col <- 0 until controller.b2.blockmaxy){
@@ -109,7 +108,7 @@
                             </div>
                             </div>
                             </div>
-                            <div class="col">
+                            <div class="col-sm-4">
                             <div class="block" id="3"  onclick="return nextMove(this);">
                             @for(col <- 0 until controller.b3.blockmaxy){
                                 <div class="cellRow">

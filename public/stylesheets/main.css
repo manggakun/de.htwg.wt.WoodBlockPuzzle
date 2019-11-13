@@ -23,6 +23,7 @@
     height: 100%;
     z-index: -50;
     opacity: 100%;
+    object-fit: contain;
 }
 .exampleImage{
     top: 0;
@@ -53,7 +54,8 @@ h1, h3{
     width: var(--game);
     height: var(--game);
     padding-top: 1%;
-    border-style: solid;
+    object-fit: scale-down;
+    /*     border-style: solid; */
 
 }
 .cellRow{
@@ -77,13 +79,13 @@ h1, h3{
 .set{
     height: 100%;
     width: 100%;
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-name: flash; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
     background-color: green;
 }
 
 /* Safari 4.0 - 8.0 */
-@-webkit-keyframes example {
+@-webkit-keyframes flash {
     0%   {background-color: yellow;}
     25%  {background-color: red;}
     50%  {background-color: silver;}

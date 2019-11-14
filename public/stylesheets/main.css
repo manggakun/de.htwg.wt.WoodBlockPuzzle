@@ -5,6 +5,8 @@
     --block-cell-size: 2.5vw;
     --block: 12.5vw;
     --game: 30vw;
+    --setColor: #1476B2;
+    /*   ad0800   */
 }
 .imageBackground{
     position: absolute;
@@ -46,13 +48,15 @@
     z-index: -100;
     opacity: 0.3;
 }
-#gameBody{
+
+#gameBody, #about-body{
     background-color: #111;
 }
 
 
 h1, h3{
     font-family: "Comic Sans MS", Comic Sans, cursive;
+    color: white;
 }
 #game {
     width: var(--game);
@@ -81,7 +85,8 @@ h1, h3{
 .set{
     height: 100%;
     width: 100%;
-    background-color: green;
+    background-color: var(--setColor);
+    opacity: 90%;
 }
 
 #blocks{
@@ -106,7 +111,7 @@ h1, h3{
     /*clear cell*/
 }
 .blockSet{
-    background-color: green;
+    background-color: var(--setColor);
     height: 100%;
     width: 100%;
     border-width: 0.1vw;

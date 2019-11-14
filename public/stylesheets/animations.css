@@ -1,3 +1,4 @@
+@import "importLib/hover.css";
 .block:before{
     content: '';
     background: linear-gradient(45deg, #021130, #021130, #01F868, #021130, #7CA2F3, #7CA2F3, #01F868, #7CA2F3, #021130);
@@ -57,7 +58,7 @@
     margin-top: 5%;
     margin-left: 5%;
     padding: 20%;
-    opacity: 90%;
+    opacity: 100%;
 }
 
 /* Safari 4.0 - 8.0 */
@@ -91,6 +92,7 @@
 }
 
 .gameImageBackground{
+    /*     background: linear-gradient(45deg, #f9c200, #ffdba6, #800000, #ffdba6, #a64d00, #800000, #f9c200, #ffdba6, #f9c200); */
     background: linear-gradient(45deg, #021130, #021130, #01F868, #021130, #7CA2F3, #7CA2F3, #01F868, #7CA2F3, #021130);
     /*     background: linear-gradient(45deg, #29B367, #78E7AA, #70D3C7, #01CEB6, #7CA2F3, #021130, #021130, #78E7AA, #7CA2F3); */
     background-size: 400%;
@@ -102,7 +104,7 @@
     opacity: 100%;
     transition: opacity .3s ease-in-out;
 }
-.imageBackground{
+.imageBackground, .aboutBackground{
     filter: blur(5px);
 }
 

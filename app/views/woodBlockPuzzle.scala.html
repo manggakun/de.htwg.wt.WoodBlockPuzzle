@@ -1,6 +1,5 @@
 @(controller:de.htwg.se.woodblockpuzzle.controller.Controller)
 @size= @{ controller.fieldsize }
-
 <!DOCTYPE html>
 @main("HTWG WoodBlockPuzzle") {
 <html>
@@ -12,16 +11,16 @@
             <a class="navbar-brand" href="http://localhost:9000/about">WoodBlockPuzzle</a>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:9000/about">Rules</a>
+                    <a class="nav-link hvr-underline-from-center" href="http://localhost:9000/about">Rules</a>
                 </li>
                 <li class="nav-item">
-                    <a id="newgame" class="nav-link" href="http://localhost:9000/reset">NewGame</a>
+                    <a id="newgame" class="nav-link hvr-underline-from-center" href="http://localhost:9000/reset">NewGame</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:9000/r">Reverse</a>
+                    <a class="nav-link hvr-underline-from-center" href="http://localhost:9000/r">Reverse</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost:9000/g">GiveUp</a>
+                    <a class="nav-link hvr-underline-from-center" href="http://localhost:9000/g">GiveUp</a>
                 </li>
             </ul>
         </nav>
@@ -42,11 +41,11 @@
                     </div>
 @*Section for field*@
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12" id="game" align="center">
-                        <img class="gameImageBackground" src=@routes.Assets.versioned("images/Angel.png")>
+                            <div class="gameImageBackground"></div>
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
-                                <div class="cell" id="/@row/@col">
+                                <div class="cell hvr-bounce-in" id="/@row/@col">
                                     @if(controller.getCellStatusAtField(row,col)==0){
                                         <div class="clear"></div>
                                     }else{
@@ -64,7 +63,7 @@
                     <div class="col-md-6 col-sm-8 col-12" id="blocks" align="center">
                         <div class="row" id="blockrow">
                             <div class="col-sm-4">
-                            <div class="block">
+                            <div class="block hvr-bounce-in" data-micron>
                                 <div  id="1" onclick="nextMove(this);">
                             @for(col <- 0 until controller.b1.blockmaxy){
                                 <div class="cellRow">
@@ -79,7 +78,7 @@
                             </div>
                             </div>
                             <div class="col-sm-4">
-                            <div class="block" >
+                            <div class="block hvr-bounce-in" >
                             <div id="2"  onclick="return nextMove(this);">
                             @for(col <- 0 until controller.b2.blockmaxy){
                                 <div class="cellRow">
@@ -95,7 +94,7 @@
                             </div>
                             </div>
                             <div class="col-sm-4">
-                            <div class="block" id="3"  onclick="return nextMove(this);">
+                            <div class="block hvr-bounce-in" id="3"  onclick="return nextMove(this);">
                             @for(col <- 0 until controller.b3.blockmaxy){
                                 <div class="cellRow">
                                 @for(row <- 0 until controller.b3.blockmaxx) {
@@ -115,7 +114,7 @@
 
     </body>
     <div class="center">
-        <img class="imageBackground" src=@routes.Assets.versioned("images/spacebackground.jpg")>
+       <img class="imageBackground" src=@routes.Assets.versioned("images/spacebackground.jpg")>
     </div>
 </html>
 }

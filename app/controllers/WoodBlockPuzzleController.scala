@@ -61,7 +61,7 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends Abs
       "b1" -> toJson(controller.b1.toString()),
               "b2" -> toJson(controller.b2.toString()),
               "b3" -> toJson(controller.b3.toString()),
-              "field" -> toJson(controller.field.cells.toString())
+              "field" -> toJson(controller.field.toString())
     )
   }
 

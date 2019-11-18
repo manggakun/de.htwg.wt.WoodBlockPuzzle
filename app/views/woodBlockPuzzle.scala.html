@@ -45,7 +45,7 @@
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
-                                <div class="cell hvr-bounce-in" id="/@row/@col">
+                                <div class="cell hvr-bounce-in" id="@col/@row">
                                     @if(controller.getCellStatusAtField(row,col)==0){
                                         <div class="clear"></div>
                                     }else{
@@ -63,8 +63,7 @@
                     <div class="col-md-6 col-sm-8 col-12" id="blocks" align="center">
                         <div class="row" id="blockrow">
                             <div class="col-sm-4">
-                            <div class="block hvr-bounce-in" data-micron>
-                                <div  id="1" onclick="nextMove(this);">
+                            <div class="block hvr-bounce-in" id="1" data-micron>
                             @for(col <- 0 until controller.b1.blockmaxy){
                                 <div class="cellRow">
                                 @for(row <- 0 until controller.b1.blockmaxx) {
@@ -74,12 +73,11 @@
                                     </div>
                                 }
                                 </div>
-                            }</div>
+                            }
                             </div>
                             </div>
                             <div class="col-sm-4">
-                            <div class="block hvr-bounce-in" >
-                            <div id="2"  onclick="return nextMove(this);">
+                            <div class="block hvr-bounce-in" id="2" >
                             @for(col <- 0 until controller.b2.blockmaxy){
                                 <div class="cellRow">
                                 @for(row <- 0 until controller.b2.blockmaxx) {
@@ -92,9 +90,8 @@
                             }
                             </div>
                             </div>
-                            </div>
                             <div class="col-sm-4">
-                            <div class="block hvr-bounce-in" id="3"  onclick="return nextMove(this);">
+                            <div class="block hvr-bounce-in" id="3">
                             @for(col <- 0 until controller.b3.blockmaxy){
                                 <div class="cellRow">
                                 @for(row <- 0 until controller.b3.blockmaxx) {

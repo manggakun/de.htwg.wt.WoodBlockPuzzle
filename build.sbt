@@ -18,3 +18,5 @@ libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2
 libraryDependencies += "com.h2database" % "h2" % "1.4.196"
 
 libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "2.1.1"
+
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.6"

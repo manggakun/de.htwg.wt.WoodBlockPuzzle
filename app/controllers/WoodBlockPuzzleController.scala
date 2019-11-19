@@ -34,10 +34,7 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends Abs
     gameController.reset
     Ok(views.html.woodBlockPuzzle(gameController))
   }
-  def add(b:Int, x:Int, y:Int) = Action{
-    gameController.addBlock(b,x,y)
-    Ok(views.html.woodBlockPuzzle(gameController))
-  }
+
   def addChosen(x:Int, y:Int)= Action{
    gameController.addBlock(gameController.getChosenBlock(),x,y)
    Ok(views.html.woodBlockPuzzle(gameController))
@@ -66,6 +63,12 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends Abs
   }
 
   def actionJson = Action {
+    Ok(fieldToJson(gameController))
+  }
+
+  def add(b:Int, x:Int, y:Int) = Action{
+    gameController.addBlock(b,x,y)
+//    Ok(views.html.woodBlockPuzzle(gameController))
     Ok(fieldToJson(gameController))
   }
 

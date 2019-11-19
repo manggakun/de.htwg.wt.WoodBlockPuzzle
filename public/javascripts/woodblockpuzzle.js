@@ -1,6 +1,6 @@
 $(document).ready(function () {
   console.log("Hello");
-  ajaxReload();
+  // ajaxReload();
   clickEvent();
   $("#newgame").on("click", function() {
     if (confirm('Are you sure? Your score will be lost!')) {
@@ -18,29 +18,17 @@ function clickEvent() {
 function nextMove(id) {
   var id = id;
   console.log("id: " + id);
-  var items = document.getElementsByClassName("cell");
 
-  for (var i = 0; i < items.length; i++) {
-    // items[i].addEventListener('click', sendLink);
-    items[i].addEventListener('click', setCell);
-  }
-
-  // function sendLink(e) {
-  //   var url = "http://localhost:9000/add/" + id + this.id;
-  //   window.location = url;
-  // }
-
-  function setCell(e) {
-
-    var cell = this.id.split("/");
-    var row = cell[0];
-    var col = cell[1];
-    console.log("cell: " + cell);
-    setCellOnServer(id, row, col);
-  }
+  $(".cell").on("click", function() {
+    var cellId = $(this).attr('id').split("/");
+    var col = cellId[0];
+    var row = cellId[1];
+    // setCellOnServer(id, col, row);
+    ajaxReload2(id, col, row);
+  })
 }
 
-class Field {
+class Game {
   constructor() {
     // this.fieldsize=;
     this.b1 = [];
@@ -53,12 +41,8 @@ class Field {
   }
 
   fill(json) {
-    // i dont know what to do here
-    // no i get the idea what should I do here
-    // hier wird alles geparst!!
-    this.field = json.field.split("\n");
-
     var i, j, k, l;
+    this.field = json.field.split("\n");
     for(i = 0; i < this.field.length; i++) {
       this.field[i] = this.field[i].split(" ");
     }
@@ -84,14 +68,10 @@ class Field {
         this.b3[l] = this.b3[l].split(" ");
       }
     }
-
-    console.log(this.b1);
-    console.log(this.b2);
-    console.log(this.b3);
   }
 }
 
-let field = new Field();
+let field = new Game();
 
 function ajaxReload() {
   $.ajax({
@@ -100,22 +80,35 @@ function ajaxReload() {
     dataType: "json",
 
     success: function (result) {
-      field = new Field();
+      field = new Game();
       field.fill(result);
       updateField(field);
       clickEvent();
-
     }
   });
 }
 
+function ajaxReload2(cell, x, y) {
+  var url = "/add/" + cell + "/" + x + "/" + y;
+  $.ajax({
+    method: "GET",
+    url: url,
+    dataType: "json",
 
-
-function setCellOnServer(cell, row, col) {
-  $.get("/add/" + cell + "/" + row + "/" + col, function(data) {
-    console.log("Set cell on Server");
+    success: function (result) {
+      field = new Game();
+      field.fill(result);
+      updateField(field);
+      // clickEvent();
+    }
   });
-  ajaxReload();
+}
+
+function setCellOnServer(cell, x, y) {
+  $.get("/add/" + cell + "/" + x + "/" + y, function(data) {
+    console.log("Set Block on Server");
+  });
+  // ajaxReload();
 }
 
 function updateField(field) {
@@ -135,8 +128,7 @@ function updateField(field) {
 
   $(".block").each(function() {
     var id = $(this).attr('id');
-    $(this).remove("cellRow");
-    $(this).remove("blockCell");
+    $(this).empty();
 
     var block;
     if(id === '1') {
@@ -149,13 +141,25 @@ function updateField(field) {
 
     console.log("block" + id + ": " + block);
     var i, j;
-    console.log("block.length: " + block.length);
+
+    var cellRow = document.createElement('div');
+    // $(cellRow).addClass("cellRow");
+    cellRow.classList.add("cellRow");
+    var blockSet = document.createElement('div');
+    // $(blockSet).addClass("blockSet");
+    blockSet.classList.add("blockSet");
+
     for(i =  0; i < block.length; i++) {
-      var appendCellRow = $(this).append("<div class=\"cellRow\"></div>");
-      console.log("appendCellRow");
+      console.log("this: " + $(this).attr('class'));
+      // var cellRow = $(this).append("<div class='cellRow'></div>");
+      // var cellRow = $(this).add();
+      // cellRow.addClass("cellRow");
+      var append = $(this).append(cellRow);
+
       for(j = 0; j < block[i].length; j++) {
-        appendCellRow.add("<div class=\"blockSet\"></div>");
-        console.log("blockSet");
+        // cellRow.append("<div class='blockSet'></div>");
+        // cellRow.add("<div>").addClass("blockSet");
+        append.append(blockSet);
       }
 
     }

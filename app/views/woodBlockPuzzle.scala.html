@@ -45,7 +45,7 @@
                         @for(col <- 1 to size){
                             <div class="cellRow">
                             @for(row <- 1 to size) {
-                                <div class="cell hvr-bounce-in" id="@col/@row">
+                                <div class="cell hvr-bounce-in" id="@row/@col">
                                     @if(controller.getCellStatusAtField(row,col)==0){
                                         <div class="clear"></div>
                                     }else{

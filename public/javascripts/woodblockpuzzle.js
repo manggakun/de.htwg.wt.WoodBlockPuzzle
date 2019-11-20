@@ -1,7 +1,6 @@
 $(document).ready(function () {
-  ajaxReload();
-  // clickEvent();
-
+  // ajaxReload();
+  clickEvent();
   // new game confirmation dialog
   $("#newgame").on("click", function() {
     if (confirm('Are you sure? Your score will be lost!')) {
@@ -27,8 +26,6 @@ function nextMove(id) {
     setCellOnServer(id, col, row);
     $(".cell").off("click");
     $(".block").off("click");
-
-    // ajaxReload2(id, col, row);
   })
 }
 
@@ -47,7 +44,6 @@ class Game {
     this.count = json.count;
     this.highscore= json.highscore;
     this.statusText= json.statusText;
-    console.log("statusText: " + this.statusText);
 
     var i, j, k, l;
     this.field = json.field.split("\n");
@@ -98,21 +94,6 @@ function ajaxReload() {
   });
 }
 
-function ajaxReload2(cell, x, y) {
-  var url = "/add/" + cell + "/" + x + "/" + y;
-  $.ajax({
-    method: "GET",
-    url: url,
-    dataType: "json",
-
-    success: function (result) {
-      game = new Game();
-      game.fill(result);
-      updateGame(game);
-    }
-  });
-}
-
 function setCellOnServer(cell, x, y) {
   $.get("/add/" + cell + "/" + x + "/" + y, function(data) {
     console.log("Set Block on Server");
@@ -152,21 +133,24 @@ function updateGame(game) {
     var i, j;
     for(i =  0; i < block.length; i++) {
       var cellRow = document.createElement('div');
-      cellRow.classList.add("cellRow");
+      $(cellRow).addClass("cellRow");
+
       var blockSetBlock = block[i];
 
       for(j = 0; j < blockSetBlock.length; j++) {
         var blockCell = document.createElement('div');
-        blockCell.classList.add("blockCell");
+        $(blockCell).addClass("blockCell");
+
         if(blockSetBlock[j] === '0') {
           var blockClear = document.createElement('div');
-          blockClear.classList.add("blockClear");
+          $(blockClear).addClass("blockClear");
           $(blockClear).appendTo(blockCell);
         } else {
           var blockSet = document.createElement('div');
-          blockSet.classList.add("blockSet");
+          $(blockSet).addClass("blockSet");
           $(blockSet).appendTo(blockCell);
         }
+
         $(blockCell).appendTo($(cellRow));
       }
       $(cellRow).appendTo($(this));

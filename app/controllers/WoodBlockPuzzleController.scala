@@ -8,6 +8,8 @@ import de.htwg.se.woodblockpuzzle.WoodBlockPuzzle
 import play.api.libs.json.{JsObject, JsValue, Json}
 import play.api.libs.json.Json._
 
+import scala.util.parsing.json.JSONArray
+
 @Singleton
 class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends AbstractController(cc){
   val gameController = WoodBlockPuzzle.controller
@@ -56,9 +58,12 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends Abs
   def fieldToJson(controller: Controller): JsObject = {
     obj(
       "b1" -> toJson(controller.b1.toString()),
-              "b2" -> toJson(controller.b2.toString()),
-              "b3" -> toJson(controller.b3.toString()),
-              "field" -> toJson(controller.field.toString())
+      "b2" -> toJson(controller.b2.toString()),
+      "b3" -> toJson(controller.b3.toString()),
+      "field" -> toJson(controller.field.toString()),
+      "count"-> toJson(controller.returnCount.toString()),
+      "highscore" -> toJson(controller.returnHighscore.toString()),
+      "statusText" -> toJson(controller.statusText.toString())
     )
   }
 
@@ -68,8 +73,8 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends Abs
 
   def add(b:Int, x:Int, y:Int) = Action{
     gameController.addBlock(b,x,y)
-//    Ok(views.html.woodBlockPuzzle(gameController))
-    Ok(fieldToJson(gameController))
+    Ok(views.html.woodBlockPuzzle(gameController))
+//    Ok(fieldToJson(gameController))
   }
 
 }

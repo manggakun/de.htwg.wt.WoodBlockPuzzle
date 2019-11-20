@@ -1,6 +1,6 @@
 $(document).ready(function () {
   // ajaxReload();
-  clickEvent();
+  addClickEventToBlocks();
   // new game confirmation dialog
   $("#newgame").on("click", function() {
     if (confirm('Are you sure? Your score will be lost!')) {
@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 });
 
-function clickEvent() {
+function addClickEventToBlocks() {
     var id;
     $(".block").click(function() {
         id = $(this).attr('id');
@@ -23,7 +23,7 @@ function clickEvent() {
         var row = cellId[1];
         $(".cell").off("click");
         $(".block").off("click");
-        setCellOnServer(id, col, row);
+        setBlockOnServer(id, col, row);
     });
 }
 
@@ -87,15 +87,17 @@ function ajaxReload() {
       game = new Game();
       game.fill(result);
       updateGame(game);
-      clickEvent();
+      addClickEventToBlocks();
     }
   });
 }
 
-function setCellOnServer(cell, x, y) {
-  $.get("/add/" + cell + "/" + x + "/" + y, function(data) {
-    console.log("Set Block on Server");
-  });
+function setBlockOnServer(block, x, y) {
+  if(block !== undefined) {
+    $.get("/add/" + block + "/" + x + "/" + y, function (data) {
+      console.log("Set block " + block + " on " + x + "," + y);
+    });
+  }
   ajaxReload();
 }
 

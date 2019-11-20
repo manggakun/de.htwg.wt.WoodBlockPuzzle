@@ -11,22 +11,20 @@ $(document).ready(function () {
 });
 
 function clickEvent() {
-  $(".block").click(function() {
-    nextMove($(this).attr('id'));
-  });
-}
+    var id;
+    $(".block").click(function() {
+        id = $(this).attr('id');
+        console.log("id: " + id);
+    });
 
-function nextMove(id) {
-  var id = id;
-  console.log("id: " + id);
-  $(".cell").on("click", function() {
-    var cellId = $(this).attr('id').split("/");
-    var col = cellId[0];
-    var row = cellId[1];
-    setCellOnServer(id, col, row);
-    $(".cell").off("click");
-    $(".block").off("click");
-  })
+    $(".cell").on("click", function() {
+        var cellId = $(this).attr('id').split("/");
+        var col = cellId[0];
+        var row = cellId[1];
+        $(".cell").off("click");
+        $(".block").off("click");
+        setCellOnServer(id, col, row);
+    });
 }
 
 class Game {

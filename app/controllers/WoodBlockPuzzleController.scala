@@ -1,17 +1,23 @@
 package controllers
 
-import de.htwg.se.woodblockpuzzle.controller.Controller
 import javax.inject._
 import play.api.mvc._
 import de.htwg.se.woodblockpuzzle.controller.Controller
 import de.htwg.se.woodblockpuzzle.WoodBlockPuzzle
 import play.api.libs.json.{JsObject, JsValue, Json}
 import play.api.libs.json.Json._
+import play.api.libs.streams.ActorFlow
+import akka.actor.ActorSystem
+import akka.stream.Materializer
+import akka.actor._
+import de.htwg.se.woodblockpuzzle.controller.FieldChanged
+
+import scala.swing.Reactor
 
 import scala.util.parsing.json.JSONArray
 
 @Singleton
-class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends AbstractController(cc){
+class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc){
   val gameController = WoodBlockPuzzle.controller
 //  var woodBlockPuzzleastext = ""
 
@@ -74,7 +80,39 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) extends Abs
   def add(b:Int, x:Int, y:Int) = Action{
     gameController.addBlock(b,x,y)
     Ok(views.html.woodBlockPuzzle(gameController))
-//    Ok(fieldToJson(gameController))
   }
+
+  def socket = WebSocket.accept[String, String] { request =>
+    ActorFlow.actorRef { out =>
+      println("Connect received")
+      WoodblockWebSocketActorFactory.create(out)
+    }
+  }
+
+  object WoodblockWebSocketActorFactory {
+    def create(out: ActorRef) = {
+      Props(new WoodblockWebSocketActor(out))
+    }
+  }
+
+  class WoodblockWebSocketActor(out: ActorRef) extends Actor with Reactor{
+    listenTo(gameController)
+
+    def receive = {
+      case msg: String =>
+        out ! (fieldToJson(gameController))
+        println("Sent Json to Client"+ msg)
+    }
+
+    reactions += {
+      case event: FieldChanged => sendJsonToClient
+    }
+
+    def sendJsonToClient = {
+      println("Received event from Controller")
+      out ! (fieldToJson(gameController))
+    }
+  }
+
 
 }

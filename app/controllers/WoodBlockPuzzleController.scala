@@ -110,7 +110,7 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
 
     def sendJsonToClient = {
       println("Received event from Controller")
-      out ! (fieldToJson(gameController))
+      out ! (fieldToJson(gameController).toString())
     }
   }
 

@@ -7,6 +7,7 @@ function connectWebSocket() {
     }
 
     websocket.onclose = function () {
+        // return false;
         console.log('Connection with Websocket Closed!');
     };
 
@@ -20,11 +21,9 @@ function connectWebSocket() {
             game.fill(json);
             updateGame(game);
             addClickEventToBlocks();
-
         }
-        return false;
-
     };
+    return false;
 }
 
 $(document).ready(function () {

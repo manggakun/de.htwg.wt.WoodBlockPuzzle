@@ -9,10 +9,14 @@ function connectWebSocket() {
     websocket.onclose = function () {
         // return false;
         console.log('Connection with Websocket Closed!');
+        setTimeout(function() {
+            connectWebSocket();
+        }, 1000);
     };
 
     websocket.onerror = function (error) {
         console.log('Error in Websocket Occured: ' + error);
+        websocket.close();
     };
 
     websocket.onmessage = function (e) {

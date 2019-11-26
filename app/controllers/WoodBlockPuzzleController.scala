@@ -100,7 +100,7 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
 
     def receive = {
       case msg: String =>
-        out ! (fieldToJson(gameController))
+        out ! (fieldToJson(gameController).toString())
         println("Sent Json to Client"+ msg)
     }
 

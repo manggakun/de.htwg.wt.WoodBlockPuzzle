@@ -21,13 +21,8 @@ function connectWebSocket() {
             updateGame(game);
             addClickEventToBlocks();
 
-
-            // let json = JSON.parse(e.data);
-            // let cells = json.grid.cells;
-            // grid.fill(cells);
-            // updateGrid(grid);
-            // registerClickListener();
         }
+        return false;
 
     };
 }

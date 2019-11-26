@@ -23,7 +23,7 @@ function connectWebSocket() {
             addClickEventToBlocks();
         }
     };
-    return false;
+
 }
 
 $(document).ready(function () {
@@ -117,7 +117,6 @@ function ajaxReload() {
       game = new Game();
       game.fill(result);
       updateGame(game);
-      addClickEventToBlocks();
     }
   });
 }

@@ -27,13 +27,15 @@ function connectWebSocket() {
             addClickEventToBlocks();
         }
     };
-
+    return false;
 }
 
+$(window).on("load", function() {
+    connectWebSocket();
+});
+
 $(document).ready(function () {
-  // ajaxReload();
-  addClickEventToBlocks();
-  connectWebSocket();
+    addClickEventToBlocks();
 
   // new game confirmation dialog
   $("#newgame").on("click", function() {
@@ -131,7 +133,28 @@ function setBlockOnServer(block, x, y) {
       console.log("Set block " + block + " on " + x + "," + y);
     });
   }
-  ajaxReload();
+  // ajaxReload();
+}
+
+function menuBarRequest(str) {
+    if(str === "reset") {
+        $.get("/reset", function (data) {
+            console.log("Game is reset");
+        });
+    } else if(str === "g") {
+        $.get("/g", function (data) {
+            console.log("Gave up the game");
+        });
+    } else if(str === "r") {
+        $.get("/r", function (data) {
+            console.log("Gave is reversed");
+        });
+    } else if(str === "about") {
+        $.get("/about", function (data) {
+            console.log("Go to home");
+        });
+    }
+
 }
 
 function updateGame(game) {

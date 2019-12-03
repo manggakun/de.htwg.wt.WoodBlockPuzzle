@@ -20,3 +20,5 @@ libraryDependencies += "com.h2database" % "h2" % "1.4.196"
 libraryDependencies += "org.scala-lang.modules" %% "scala-swing" % "2.1.1"
 
 libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.6"
+
+libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.8"

@@ -26,16 +26,12 @@ function connectWebSocket() {
             addClickEventToBlocks();
         }
     };
-    // return false;
+    return false;
 }
 
-$(window).on("load", function() {
-    connectWebSocket();
-});
-
 $(document).ready(function () {
-    addClickEventToBlocks();
-
+    connectWebSocket();
+    ajaxReload();
   // new game confirmation dialog
   $("#newgame").on("click", function() {
     if (confirm('Are you sure? Your score will be lost!')) {
@@ -46,20 +42,22 @@ $(document).ready(function () {
 });
 
 function addClickEventToBlocks() {
-    var id;
+    let id;
     $(".block").click(function() {
         id = $(this).attr('id');
         console.log("id: " + id);
     });
 
     $(".cell").on("click", function() {
-        var cellId = $(this).attr('id').split("/");
-        var col = cellId[0];
-        var row = cellId[1];
-        $(".cell").off("click");
-        $(".block").off("click");
-        setBlockOnServer(id, col, row);
+        let cellId = $(this).attr('id').split("/");
+        let col = cellId[0];
+        let row = cellId[1];
+        if(id !== undefined) {
+            setBlockOnField(id, col, row);
+        }
     });
+
+
 }
 
 class Game {
@@ -122,16 +120,20 @@ function ajaxReload() {
       game = new Game();
       game.fill(result);
       updateGame(game);
+      addClickEventToBlocks();
     }
+
   });
 }
 
-function setBlockOnServer(block, x, y) {
-  if(block !== undefined) {
+function setBlockOnField(block, x, y) {
+    $(".cell").off("click");
+    $(".block").off("click");
+
     $.get("/add/" + block + "/" + x + "/" + y, function (data) {
       console.log("Set block " + block + " on " + x + "," + y);
     });
-  }
+
   // ajaxReload();
 }
 

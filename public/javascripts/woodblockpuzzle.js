@@ -7,7 +7,6 @@ function connectWebSocket() {
     }
 
     websocket.onclose = function () {
-        // return false;
         console.log('Connection with Websocket Closed!');
         setTimeout(function() {
             connectWebSocket();
@@ -27,7 +26,7 @@ function connectWebSocket() {
             addClickEventToBlocks();
         }
     };
-    return false;
+    // return false;
 }
 
 $(window).on("load", function() {

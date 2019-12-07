@@ -1,0 +1,7 @@
+{
+  "name": "woodBlockPuzzle",
+  "short_name": "woodBlockPuzzle",
+  "description": "woodBlockPuzzle for HTWG lecture Webtechnologies",
+  "start_url": "/",
+  "display": "standalone"
+}

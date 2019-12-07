@@ -6,6 +6,8 @@
 
 GET     /                           controllers.WoodBlockPuzzleController.woodblock
 
+GET     /polymer                    controllers.WoodBlockPuzzleController.woodblockPolymer
+
 GET     /about                      controllers.WoodBlockPuzzleController.about
 
 GET    /reset                       controllers.WoodBlockPuzzleController.reset

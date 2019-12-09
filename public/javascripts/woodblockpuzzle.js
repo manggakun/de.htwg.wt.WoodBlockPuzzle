@@ -134,7 +134,6 @@ function setBlockOnField(block, x, y) {
       console.log("Set block " + block + " on " + x + "," + y);
     });
 
-  // ajaxReload();
 }
 
 function menuBarRequest(str) {

@@ -19,7 +19,6 @@ import scala.util.parsing.json.JSONArray
 @Singleton
 class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc){
   val gameController = WoodBlockPuzzle.controller
-//  var woodBlockPuzzleastext = ""
 
   def getText(): String ={
     var woodBlockPuzzleastext = "COUNT: "+ gameController.returnCount + "\t HIGHSCORE: "+ gameController.returnHighscore +

@@ -88,9 +88,9 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
     }
   }
 
-  def woodblockPolymer = Action{
-    Ok(views.html.woodBlockPuzzlePolymer(gameController))
-  }
+//  def woodblockPolymer = Action{
+//    Ok(views.html.woodBlockPuzzlePolymer(gameController))
+//  }
 
   object WoodblockWebSocketActorFactory {
     def create(out: ActorRef) = {

@@ -10,11 +10,14 @@
         <meta name="description" content="WoodblockPuzzle for Webtechnologies">
 
             <!-- See https://goo.gl/OOhYW5 -->
-        <link rel="manifest" href="@routes.Assets.versioned("manifest.json")">
+@*        <link rel="manifest" href="@routes.Assets.versioned("manifest.json")">*@
 
-        <script src="@routes.Assets.versioned("bower_components/webcomponentsjs/webcomponents-loader.js")"></script>
+@*        <script src="@routes.Assets.versioned("bower_components/webcomponentsjs/webcomponents-loader.js")"></script>*@
 
         <link rel="import" href="@routes.Assets.versioned("/src/woodBlockPuzzle-app/woodBlock-app.html")">
+
+        <script src="@routes.Assets.versioned("bower_components/polymer/webcomponents-loader.js")"></script>
+
     </head>
     <body>
         <woodBlock-app></woodBlock-app>

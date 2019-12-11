@@ -1,12 +1,24 @@
 {
-  "name": "woodBlockPuzzle",
-  "description": "woodBlockPuzzle for HTWG lecture Webtechnologies",
+  "name": "woodblock",
+  "homepage": "https://github.com/manggakun/de.htwg.wt.WoodBlockPuzzle",
+  "authors": [
+    "baek3004 <manggaraniv@gmail.com>"
+  ],
+  "description": "WoodBlockPuzzle for HTWG lecture Webtechnologies",
   "main": "index.html",
+  "keywords": [
+    "woodblock"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
-  },
-  "devDependencies": {
-    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+    "polymer": "^3.3.1"
   }
 }

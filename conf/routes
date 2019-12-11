@@ -6,7 +6,7 @@
 
 GET     /                           controllers.WoodBlockPuzzleController.woodblock
 
-GET     /polymer                    controllers.WoodBlockPuzzleController.woodblockPolymer
+#GET     /polymer                    controllers.WoodBlockPuzzleController.woodblockPolymer
 
 GET     /about                      controllers.WoodBlockPuzzleController.about
 

@@ -1,5 +1,5 @@
 function connectWebSocket() {
-    var websocket = new WebSocket("ws://localhost:9000/websocket");
+    let websocket = new WebSocket("ws://localhost:9000/websocket");
     websocket.setTimeout
 
     websocket.onopen = function (event) {
@@ -76,8 +76,8 @@ class Game {
     this.highscore= json.highscore;
     this.statusText= json.statusText;
 
-    var i, j, k, l;
-    this.field = json.field.split("\n");
+      let i, j, k, l;
+      this.field = json.field.split("\n");
     for(i = 0; i < this.field.length; i++) {
       this.field[i] = this.field[i].split(" ");
     }
@@ -165,9 +165,9 @@ function updateGame(game) {
 
   // update field
   $(".cell").each(function() {
-    var id = $(this).attr('id').split('/');
-    var col = parseInt(id[0]) - 1;
-    var row = parseInt(id[1]) - 1;
+    let id = $(this).attr('id').split('/');
+    let col = parseInt(id[0]) - 1;
+    let row = parseInt(id[1]) - 1;
 
     if (game.field[row][col] === '0') {
       $(this).children().attr('class', 'clear');
@@ -178,31 +178,31 @@ function updateGame(game) {
 
   // update blocks
   $(".block").each(function() {
-    var id = $(this).attr('id');
+    let id = $(this).attr('id');
     $(this).empty();
 
-    var block;
+    let block;
     if(id === '1') { block = game.b1;
     } else if(id === '2') { block = game.b2;
     } else { block = game.b3; }
 
-    var i, j;
+    let i, j;
     for(i =  0; i < block.length; i++) {
-      var cellRow = document.createElement('div');
+        let cellRow = document.createElement('div');
       $(cellRow).addClass("cellRow");
 
-      var blockSetBlock = block[i];
+      let blockSetBlock = block[i];
 
       for(j = 0; j < blockSetBlock.length; j++) {
-        var blockCell = document.createElement('div');
+          let blockCell = document.createElement('div');
         $(blockCell).addClass("blockCell");
 
         if(blockSetBlock[j] === '0') {
-          var blockClear = document.createElement('div');
+            let blockClear = document.createElement('div');
           $(blockClear).addClass("blockClear");
           $(blockClear).appendTo(blockCell);
         } else {
-          var blockSet = document.createElement('div');
+            let blockSet = document.createElement('div');
           $(blockSet).addClass("blockSet");
           $(blockSet).appendTo(blockCell);
         }

@@ -123,6 +123,7 @@ p{
 .text{
     font-family: "Comic Sans MS", Comic Sans, cursive;
     color: white;
+
 }
 
 #about-body {
@@ -148,4 +149,5 @@ a:hover
 #count, #highscore, #status{
     margin: 10%;
     margin-left: 5%;
+    font-size: 2.5vmin;
 }

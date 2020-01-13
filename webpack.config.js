@@ -36,6 +36,17 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.js$/,
+                // Exclude transpiling `node_modules`, except `bootstrap-vue/src`
+                exclude: /node_modules\/(?!bootstrap-vue\/src\/)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
             }
         ]
     },
@@ -44,12 +55,16 @@ module.exports = {
         vue: 'Vue'
     },
     resolve: {
-        extensions: ['.ts', '.js', '.vue']
+        extensions: ['.ts', '.js', '.vue'],
+        alias: {
+            // Alias for using source of BootstrapVue
+            vue$: 'vue/dist/vue.runtime.esm.js'
+        }
     },
     performance: {
         hints: 'error',
-        maxAssetSize: 1500000,
-        maxEntrypointSize: 1500000,
+        maxAssetSize: 15000000,
+        maxEntrypointSize: 15000000,
         assetFilter: function(assetFilename) {
             return assetFilename.endsWith('.js');
         }

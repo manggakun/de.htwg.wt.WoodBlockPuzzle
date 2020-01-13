@@ -1,0 +1,109 @@
+@(controller:de.htwg.se.woodblockpuzzle.controller.Controller)
+@size= @{ controller.fieldsize }
+<!DOCTYPE html>
+@main("HTWG WoodBlockPuzzle") {
+    <html>
+        <head>
+            <title>WoodBlockPuzzle</title>
+        </head>
+        <body id="gameBody">
+            <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                <a class="navbar-brand" href="http://localhost:9000/about">WoodBlockPuzzle</a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link hvr-underline-from-center" href="http://localhost:9000/about">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="newgame" class="nav-link hvr-underline-from-center" href="http://localhost:9000/reset">NewGame</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-underline-from-center" href="http://localhost:9000/r">Reverse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link hvr-underline-from-center" href="http://localhost:9000/g">GiveUp</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="woodBlockPuzzleController">
+                @*Section for Count and Highscore*@
+                <div class="row" id="infosAndGame">
+                    <div class = "col-lg-4 col-md-6 col-sm-6 col-12" id = "infos">
+                        <div class="text" id = "count">
+                        @{"Count: "+controller.returnCount}
+                        </div>
+                        <div class="text" id = "highscore">
+                        @{"Highscore: "+controller.returnHighscore}
+                        </div>
+                        <div class="text" id = "status">
+                            Last action: @{controller.statusText}
+                        </div>
+                    </div>
+                    @*Section for field*@
+                    <div id="woodblock-app"></div>
+                </div>
+                @*Section for the 3 Blocks*@
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-md-6 col-sm-8 col-12" id="blocks" align="center">
+                        <div class="row" id="blockrow">
+                            <div class="col-sm-4">
+                                <div class="block hvr-grow" id="1" data-micron>
+                                @for(col <- 0 until controller.b1.blockmaxy){
+                                    <div class="cellRow">
+                                    @for(row <- 0 until controller.b1.blockmaxx) {
+                                        <div class="blockCell">
+                                        @if(controller.getCellStatusAtBlock(1,row,col)==0){<div class="blockClear"></div>
+                                        }else{ <div class="blockSet"></div> }
+                                        </div>
+                                    }
+                                    </div>
+                                }
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="block hvr-grow" id="2" >
+                                @for(col <- 0 until controller.b2.blockmaxy){
+                                    <div class="cellRow">
+                                    @for(row <- 0 until controller.b2.blockmaxx) {
+                                        <div class="blockCell">
+                                        @if(controller.getCellStatusAtBlock(2,row,col)==0){<div class="blockClear"></div>
+                                        }else{ <div class="blockSet"></div> }
+                                        </div>
+                                    }
+                                    </div>
+                                }
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="block hvr-grow" id="3">
+                                @for(col <- 0 until controller.b3.blockmaxy){
+                                    <div class="cellRow">
+                                    @for(row <- 0 until controller.b3.blockmaxx) {
+                                        <div class="blockCell">
+                                        @if(controller.getCellStatusAtBlock(3,row,col)==0){<div class="blockClear"></div>
+                                        }else{ <div class="blockSet"></div> }
+                                        </div>
+                                    }
+                                    </div>
+                                }</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+            <script>
+                    var app = new Vue({
+                        el: '#woodblock-app',
+                        render: function(html) {
+                            return html(WoodblockApp.default, {});
+                        }
+                    })
+            </script>
+        </body>
+        <div class="center">
+            <img class="imageBackground" src=@routes.Assets.versioned("images/spacebackground.jpg")>
+        </div>
+    </html>
+}

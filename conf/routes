@@ -22,5 +22,7 @@ GET    /json                        controllers.WoodBlockPuzzleController.action
 
 GET     /websocket                  controllers.WoodBlockPuzzleController.socket
 
+#GET     /vueWoodblock               controllers.WoodBlockPuzzleController.vueWoodblock
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

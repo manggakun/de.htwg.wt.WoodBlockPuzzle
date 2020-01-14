@@ -39,6 +39,7 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
   }
 
   def vueWoodblock = Action.async {
+    gameController.reset
     Future(Ok(views.html.vueWoodblock(gameController)))
   }
 

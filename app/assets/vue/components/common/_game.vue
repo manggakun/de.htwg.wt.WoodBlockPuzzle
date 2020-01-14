@@ -1,20 +1,6 @@
 import Vue from "vue";
 
 <template>
-    <!--        @for(col <- 1 to size){-->
-    <!--        <div class="cellRow">-->
-    <!--            @for(row <- 1 to size) {-->
-    <!--            <div class="cell hvr-grow" id="@row/@col">-->
-    <!--                @if(controller.getCellStatusAtField(row,col)==0){-->
-    <!--                <div class="clear"></div>-->
-    <!--                }else{-->
-    <!--                <div class="set"></div>-->
-    <!--                }-->
-    <!--            </div>-->
-    <!--            }-->
-    <!--        </div>-->
-    <!--        }-->
-
     <div class="col-lg-4 col-md-6 col-sm-6 col-12" id="game" align="center">
         <div class="gameImageBackground"></div>
 

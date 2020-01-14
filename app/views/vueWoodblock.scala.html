@@ -1,8 +1,21 @@
 @(controller:de.htwg.se.woodblockpuzzle.controller.Controller)
 @size= @{ controller.fieldsize }
 <!DOCTYPE html>
+
 @main("HTWG WoodBlockPuzzle") {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+    <script src="@routes.Assets.versioned("javascripts/vue.js")" ></script>
+    <script src="@routes.Assets.versioned("javascripts/woodblockVue.js")" ></script>
+
     <html>
+@*        <script>*@
+@*                var app = new Vue({*@
+@*                    el: '#woodblock-app',*@
+@*                    render: function(html) {*@
+@*                        return html(WoodblockApp.default, {});*@
+@*                    }*@
+@*                })*@
+@*        </script>*@
         <head>
             <title>WoodBlockPuzzle</title>
         </head>
@@ -93,14 +106,7 @@
                     <div class="col"></div>
                 </div>
             </div>
-            <script>
-                    var app = new Vue({
-                        el: '#woodblock-app',
-                        render: function(html) {
-                            return html(WoodblockApp.default, {});
-                        }
-                    })
-            </script>
+
         </body>
         <div class="center">
             <img class="imageBackground" src=@routes.Assets.versioned("images/spacebackground.jpg")>

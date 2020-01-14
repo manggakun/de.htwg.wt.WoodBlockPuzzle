@@ -1,11 +1,12 @@
+import com.typesafe.sbt.SbtScalariform._
+
+import scalariform.formatter.preferences._
 
 name := """Wood Block Puzzle in Scala for WebTech"""
 
 version := "1.2"
 
-lazy val root = (project in file(".")).enablePlugins(PlayScala, SbtWeb, SbtVuefy)
-
-resolvers += Resolver.sonatypeRepo("snapshots")
+scalaVersion := "2.12.8"
 
 resolvers += Resolver.jcenterRepo
 
@@ -34,8 +35,10 @@ libraryDependencies ++= Seq(
 )
 
 //lazy val root = (project in file(".")).enablePlugins(PlayScala, SbtWeb, SbtVuefy).aggregate(chessLib).dependsOn(chessLib)
-lazy val root = (project in file(".")).enablePlugins(PlayScala, SbtWeb, SbtVuefy)
 //lazy val chessLib = project
+
+lazy val root = (project in file(".")).enablePlugins(PlayScala, SbtWeb, SbtVuefy).aggregate(woodblockLib).dependsOn(woodblockLib)
+lazy val woodblockLib = project
 
 routesImport += "utils.route.Binders._"
 
@@ -70,7 +73,7 @@ ScalariformKeys.preferences := ScalariformKeys.preferences.value
   .setPreference(DoubleIndentConstructorArguments, false)
   .setPreference(DanglingCloseParenthesis, Preserve)
 
-libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.8"
+//libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.8"
 
 // The commands that triggers production build when running Webpack, as in `webpack -p`.
 Assets / VueKeys.vuefy / VueKeys.prodCommands := Set("stage")

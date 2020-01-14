@@ -36,16 +36,8 @@ import Vue from "vue";
     };
 </script>
 
-<style>
+<style scoped lang="scss">
 
-    :root{
-        --cell-size: 3.0vw;
-        --block-cell-size: 2.5vw;
-        --block: 12.5vw;
-        --game: 30vw;
-        --setColor: #1476B2;
-        /*   ad0800   */
-    }
     .imageBackground{
         position: absolute;
         top: 0;
@@ -97,8 +89,8 @@ import Vue from "vue";
         color: white;
     }
     #game {
-        width: var(--game);
-        height: var(--game);
+        width: 30vw;
+        height: 30vw;
         padding-top: 1%;
         object-fit: scale-down;
     }
@@ -107,8 +99,8 @@ import Vue from "vue";
         font-size: 0;
     }
     .cell{
-        height: var(--cell-size);
-        width: var(--cell-size);
+        height: 3.0vw;
+        width: 3.0vw;
         display:inline-block;
         border-width: 0.1vw;
         border-style:solid;
@@ -123,7 +115,7 @@ import Vue from "vue";
     .set{
         height: 100%;
         width: 100%;
-        background-color: var(--setColor);
+        background-color: #1476B2;
         opacity: 90%;
     }
 
@@ -141,24 +133,21 @@ import Vue from "vue";
     }
 
     .blockCell{
-        height: var(--block-cell-size);
-        width: var(--block-cell-size);
+        height: 2.5vw;
+        width: 2.5vw;
         display:inline-block;
     }
     .blockClear{
         /*clear cell*/
     }
     .blockSet{
-        background-color: var(--setColor);
+        background-color: #1476B2;
         height: 100%;
         width: 100%;
         border-width: 0.1vw;
         border-style:solid;
     }
-    p{
-        #text-align: center;
-    }
-    .text{
+    .text {
         font-family: "Comic Sans MS", Comic Sans, cursive;
         color: white;
     }

@@ -26,11 +26,11 @@ libraryDependencies += "com.typesafe.akka" %% "akka-actor" % "2.3.8"
 Assets / VueKeys.vuefy / VueKeys.prodCommands := Set("stage")
 
 // The location of the webpack binary. For windows, it might be `webpack.cmd`.
-Assets / VueKeys.vuefy / VueKeys.webpackBinary := "./node_modules/.bin/webpack"
+Assets / VueKeys.vuefy / VueKeys.webpackBinary := "./node_modules/.bin/webpack.cmd"
 
 // The location of the webpack configuration.
 Assets / VueKeys.vuefy / VueKeys.webpackConfig := "./webpack.config.js"
 
-unmanagedResourceDirectories in Assets += baseDirectory.value / "public/node_modules"
+unmanagedResourceDirectories in Assets += baseDirectory.value / "./node_modules"
 
 Assets / VueKeys.vuefy / excludeFilter := "_*"

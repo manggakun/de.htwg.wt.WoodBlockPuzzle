@@ -17,8 +17,8 @@ import scala.swing.Reactor
 import scala.util.parsing.json.JSONArray
 
 @Singleton
-//class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer, ec: ExecutionContext) extends AbstractController(cc){
-class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc){
+class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer, ec: ExecutionContext) extends AbstractController(cc){
+//class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc){
   val gameController = WoodBlockPuzzle.controller
 
   def getText(): String ={
@@ -38,9 +38,9 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
     Ok(views.html.woodBlockPuzzle(gameController))
   }
 
-//  def vueWoodblock = Action.async {
-//    Future(Ok(views.html.vueWoodblock(gameController)))
-//  }
+  def vueWoodblock = Action.async {
+    Future(Ok(views.html.vueWoodblock(gameController)))
+  }
 
   def reset = Action {
     gameController.reset

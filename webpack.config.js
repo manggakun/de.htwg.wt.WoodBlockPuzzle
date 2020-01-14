@@ -4,8 +4,6 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-    mode: "production",
-    // entry: "./node-modules/.bin/webpack",
     plugins: [
         new VueLoaderPlugin()
     ],
@@ -28,36 +26,14 @@ module.exports = {
                 ],
             },
             {
-                test: /\.ts$/,
-                loader: 'ts-loader',
-                options: {
-                    appendTsSuffixTo: [/\.vue$/],
-                }
-            },
-            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
-            },
-            {
-                test: /\.js$/,
-                // Exclude transpiling `node_modules`, except `bootstrap-vue/src`
-                exclude: /node_modules\/(?!bootstrap-vue\/src\/)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env']
-                    }
-                }
             }
         ]
     },
-    externals: {
-        // The below allows Typescript to `import Vue from 'vue'` without including Vue in the bundle.
-        vue: 'Vue'
-    },
     resolve: {
-        extensions: ['.ts', '.js', '.vue'],
+        extensions: ['.js', '.vue'],
         alias: {
             // Alias for using source of BootstrapVue
             vue$: 'vue/dist/vue.runtime.esm.js'
@@ -71,7 +47,16 @@ module.exports = {
             return assetFilename.endsWith('.js');
         }
     },
-    devtool: ''
+    devtool: '',
+
+    devServer: {
+        compress: true,
+        host: 'localhost',
+        https: true,
+        open: true,
+        overlay: true,
+        port: 9000
+    }
 };
 
 // If the arguments includes `-p`, it means we are doing the production build.

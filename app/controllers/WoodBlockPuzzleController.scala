@@ -1,68 +1,60 @@
 package controllers
 
 import javax.inject._
-import play.api.mvc._
 import de.htwg.se.woodblockpuzzle.controller.Controller
 import de.htwg.se.woodblockpuzzle.WoodBlockPuzzle
-import play.api.libs.json.{JsObject, JsValue, Json}
-import play.api.libs.json.Json._
-import play.api.libs.streams.ActorFlow
-import akka.actor.ActorSystem
-import akka.stream.Materializer
-import akka.actor._
 import de.htwg.se.woodblockpuzzle.controller.FieldChanged
+
 import scala.concurrent.{ ExecutionContext, Future }
 import scala.swing.Reactor
+import com.mohiva.play.silhouette.api.Silhouette
+import com.mohiva.play.silhouette.api.actions.SecuredRequest
 
 import scala.util.parsing.json.JSONArray
+import org.webjars.play.WebJarsUtil
 
-@Singleton
-//class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer, ec: ExecutionContext) extends AbstractController(cc){
-class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer) extends AbstractController(cc){
+@Singleton //class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit system: ActorSystem, mat: Materializer, ec: ExecutionContext) extends AbstractController(cc){
+class WoodBlockPuzzleController @Inject() (components: ControllerComponents, silhouette: Silhouette[DefaultEnv])(implicit webJarsUtil: WebJarsUtil, assets: AssetsFinder, system: ActorSystem, mat: Materializer)
+  extends AbstractController(components) with I18nSupport {
   val gameController = WoodBlockPuzzle.controller
 
-  def getText(): String ={
-    var woodBlockPuzzleastext = "COUNT: "+ gameController.returnCount + "\t HIGHSCORE: "+ gameController.returnHighscore +
+  def getText(): String = {
+    var woodBlockPuzzleastext = "COUNT: " + gameController.returnCount + "\t HIGHSCORE: " + gameController.returnHighscore +
       "\n" + gameController.showFieldWithCoordinates() + "\n" + gameController.showBlock(1) +
-      "\n" + gameController.showBlock(2) + "\n" + gameController.showBlock(3)+
+      "\n" + gameController.showBlock(2) + "\n" + gameController.showBlock(3) +
       "\n " + gameController.statusText
     woodBlockPuzzleastext
   }
 
-  def about= Action {
+  def about = Action {
     Ok(views.html.index())
   }
 
-  def woodblock = Action {
-//  Ok(getText)
-    Ok(views.html.woodBlockPuzzle(gameController))
+  //  def woodblock = Action {
+  //    //  Ok(getText)
+  //    Ok(views.html.woodBlockPuzzle(gameController))
+  //  }
+
+  def vueWoodblock = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    Future.successful(Ok(views.html.vueWoodblock(gameController)))
   }
 
-//  def vueWoodblock = Action.async {
-//    Future(Ok(views.html.vueWoodblock(gameController)))
-//  }
+  def woodblock = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    Future.successful(Ok(views.html.sudoku(gameController, message, request.identity)))
+  }
 
-  def reset = Action {
+  def reset = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.reset
-    Ok(views.html.woodBlockPuzzle(gameController))
+    Future.successful(Ok(views.html.woodBlockPuzzle(gameController)))
   }
 
-  def addChosen(x:Int, y:Int)= Action{
-   gameController.addBlock(gameController.getChosenBlock(),x,y)
-   Ok(views.html.woodBlockPuzzle(gameController))
-  }
-  def setChosen(b:Int)= Action{
-    gameController.setChosenBlock(b)
-    Ok(views.html.woodBlockPuzzle(gameController))
-  }
-
-  def reverse = Action {
+  def reverse = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.reverse()
-    Ok(views.html.woodBlockPuzzle(gameController))
+    Future.successful(Ok(views.html.woodBlockPuzzle(gameController)))
   }
-  def giveup = Action {
+  def giveup = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
     gameController.giveup
-    Ok(views.html.woodBlockPuzzle(gameController))
+    Future.successful(Ok(views.html.woodBlockPuzzle(gameController)))
   }
 
   def fieldToJson(controller: Controller): JsObject = {
@@ -71,7 +63,7 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
       "b2" -> toJson(controller.b2.toString()),
       "b3" -> toJson(controller.b3.toString()),
       "field" -> toJson(controller.field.toString()),
-      "count"-> toJson(controller.returnCount.toString()),
+      "count" -> toJson(controller.returnCount.toString()),
       "highscore" -> toJson(controller.returnHighscore.toString()),
       "statusText" -> toJson(controller.statusText.toString())
     )
@@ -81,9 +73,9 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
     Ok(fieldToJson(gameController))
   }
 
-  def add(b:Int, x:Int, y:Int) = Action{
-    gameController.addBlock(b,x,y)
-    Ok(views.html.woodBlockPuzzle(gameController))
+  def add(b: Int, x: Int, y: Int) = silhouette.SecuredAction.async { implicit request: SecuredRequest[DefaultEnv, AnyContent] =>
+    gameController.addBlock(b, x, y)
+    Future.successful(Ok(views.html.woodBlockPuzzle(gameController)))
   }
 
   def socket = WebSocket.accept[String, String] { request =>
@@ -93,9 +85,9 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
     }
   }
 
-//  def woodblockPolymer = Action{
-//    Ok(views.html.woodBlockPuzzlePolymer(gameController))
-//  }
+  //  def woodblockPolymer = Action{
+  //    Ok(views.html.woodBlockPuzzlePolymer(gameController))
+  //  }
 
   object WoodblockWebSocketActorFactory {
     def create(out: ActorRef) = {
@@ -103,13 +95,13 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
     }
   }
 
-  class WoodblockWebSocketActor(out: ActorRef) extends Actor with Reactor{
+  class WoodblockWebSocketActor(out: ActorRef) extends Actor with Reactor {
     listenTo(gameController)
 
     def receive = {
       case msg: String =>
         out ! (fieldToJson(gameController).toString())
-        println("Sent Json to Client"+ msg)
+        println("Sent Json to Client" + msg)
     }
 
     reactions += {
@@ -121,6 +113,5 @@ class WoodBlockPuzzleController @Inject() (cc: ControllerComponents) (implicit s
       out ! (fieldToJson(gameController).toString())
     }
   }
-
 
 }

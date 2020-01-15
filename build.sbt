@@ -79,7 +79,7 @@ ScalariformKeys.preferences := ScalariformKeys.preferences.value
 Assets / VueKeys.vuefy / VueKeys.prodCommands := Set("stage")
 
 // The location of the webpack binary. For windows, it might be `webpack.cmd`.
-Assets / VueKeys.vuefy / VueKeys.webpackBinary := "./node_modules/.bin/webpack"
+Assets / VueKeys.vuefy / VueKeys.webpackBinary := "./node_modules/.bin/webpack.cmd"
 
 // The location of the webpack configuration.
 Assets / VueKeys.vuefy / VueKeys.webpackConfig := "./webpack.config.js"
